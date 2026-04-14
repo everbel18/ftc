@@ -33,12 +33,125 @@
     <meta property="og:site_name" content="Free Tour Cartagena">
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Free Tour Cartagena",
-      "url": "https://freetourcartagena.com/"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "@id": "https://freetourcartagena.com/#organization",
+        "name": "Free Tour Cartagena",
+        "url": "https://freetourcartagena.com/",
+        "logo": "https://freetourcartagena.com/images/Free%20Tour%20Ctg.%20COL%202.png",
+        "image": "https://freetourcartagena.com/images/OLD%20CITY%205.jpg",
+        "description": "The pioneer and highest-rated free walking tour provider in Cartagena, Colombia since 2014, with over 100,000 satisfied tourists.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cartagena",
+          "addressRegion": "Bolivar",
+          "addressCountry": "CO",
+          "streetAddress": "Plaza Santa Teresa"
+        },
+        "telephone": "+573007884863",
+        "priceRange": "$",
+        "sameAs": [
+          "https://www.tripadvisor.co/Attraction_Review-g297476-d7212576-Reviews-Free_Tour_Cartagena-Cartagena_Cartagena_District_Bolivar_Department.html",
+          "https://www.instagram.com/free_tour_cartagena/",
+          "https://www.facebook.com/freetourcartagena",
+          "https://x.com/FTCartagena",
+          "https://www.tiktok.com/@free.tour.cartage"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "TouristTrip",
+        "name": "Old City Free Walking Tour Cartagena",
+        "description": "Discover the history and architecture of Cartagena's Walled City with expert local guides.",
+        "provider": { "@id": "https://freetourcartagena.com/#organization" },
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "TouristAttraction", "name": "Plaza Santa Teresa" } },
+            { "@type": "ListItem", "position": 2, "item": { "@type": "TouristAttraction", "name": "Torre del Reloj" } },
+            { "@type": "ListItem", "position": 3, "item": { "@type": "TouristAttraction", "name": "Plaza San Pedro Claver" } }
+          ]
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free tour based on tips/gratuities."
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why choose Free Tour Cartagena?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We are pioneers since 2014 and have received the TripAdvisor Certificate of Excellence for 10 consecutive years. More than 100,000 tourists have already trusted us to discover Cartagena with our expert local guides."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where does the Free Tour Cartagena start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The meeting point is at Plaza Santa Teresa, outside the Naval Museum. Look for the guides with yellow umbrellas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are the tours available in English?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we offer tours in both English and Spanish with specialized professional guides."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you only offer free walking tours?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No! In addition to our famous Free Walking Tours, we offer specialized experiences including Street Food Tours, Private City Tours, San Basilio de Palenque trips, and Cultural Tours."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it safe to walk in Cartagena?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, the Historic Center and Getsemaní are safe for walking. Our guided tours provide an extra layer of security and local knowledge for a worry-free experience."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which is better: Old City or Getsemani?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Both are essential! The Old City is historical and architectural, while Getsemaní is bohemian and full of street art. Our tours combine both areas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I wear for a walking tour?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wear light, breathable clothing, comfortable walking shoes, sunscreen, and a hat. Morning tours are best to avoid the heat."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use US dollars or credit cards?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! For your convenience, we accept US Dollars (USD), Credit Cards, and Debit Cards for your gratuities or paid tours. We still recommend having some Colombian Pesos (COP) for small street purchases."
+            }
+          }
+        ]
+      }
+    ]
     </script>
 
     <!-- Twitter -->
@@ -163,7 +276,7 @@
         <section class="tours section" id="tours">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>Our Featured Tours</h2>
+                    <h2>What to do in Cartagena?</h2>
                     <p>Explore our experiences designed to make you fall in love with Cartagena.</p>
                 </div>
 
@@ -612,8 +725,11 @@
                             </div>
                         </div>
                     </article>
-                </div>
-                <!-- Umbrella Identification Section -->
+                </div> <!-- tours-grid -->
+            </div> <!-- container -->
+        </section> <!-- tours section -->
+
+        <!-- Umbrella Identification Section -->
                 <section class="umbrella-ribbon" id="meeting-point">
                     <div class="umbrella-container">
                         <!-- Main Content Row -->
@@ -664,7 +780,7 @@
                                     decoding="async">
                             </div>
                             <div class="about-content">
-                                <h2>About Us</h2>
+                                <h2>Why choose Free Tour Cartagena?</h2>
                                 <h3 class="subtitle">FREE TOUR CARTAGENA</h3>
                                 <p>We are proud to be pioneers in offering free walking tours in Cartagena. Since 2014,
                                     we have consistently received the TripAdvisor Certificate of Excellence, thanks to
@@ -734,6 +850,90 @@
                                     <!-- Generated by JS -->
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="faq section bg-light" id="faq">
+                    <div class="container">
+                        <div class="section-title text-center">
+                            <h2>Frequently Asked Questions</h2>
+                            <p>Everything you need to know about our tours in Cartagena.</p>
+                        </div>
+                        <div class="faq-grid">
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Why choose Free Tour Cartagena?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>We are the top-rated choice for travelers. We are pioneers since 2014, and for <strong>10 consecutive years</strong>, we have received the TripAdvisor Certificate of Excellence. More than <strong>100,000 tourists</strong> have trusted us.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Where does the Free Tour Cartagena start?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>The meeting point is at <strong>Plaza Santa Teresa</strong>, right outside the Naval Museum. Look for our guides with <strong>yellow umbrellas</strong>.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Are the tours available in English?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes! We provide specialized professional guides for both English and Spanish speakers every day.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Do you only offer free walking tours?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>No!</strong> We also offer specialized experiences like our famous Street Food Tour, Private City Tours, and excursions to San Basilio de Palenque.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Is it safe to walk in Cartagena?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>Yes</strong>, the Historic Center and Getsemaní are very safe for walking. However, joining a guided tour is the best way to enjoy the city with total peace of mind and local expertise.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Which is better: Old City or Getsemaní?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Both are must-sees! The <strong>Walled City</strong> offers history and colonial architecture, while <strong>Getsemaní</strong> offers vibrant street art and local vibes. Our tours cover both to give you the full experience.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>What should I wear for a walking tour?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Cartagena is hot and humid! Wear light, breathable clothing, comfortable walking shoes, sunscreen, and a hat. Our <strong>morning tours</strong> are best for avoiding the midday sun.</p>
+                                </div>
+                            </article>
+                            <article class="faq-item">
+                                <div class="faq-question">
+                                    <h3>Can I use USD or credit cards?</h3>
+                                    <div class="faq-icon"></div>
+                                </div>
+                                <div class="faq-answer">
+                                    <p><strong>Yes!</strong> For your convenience, we accept <strong>US Dollars (USD)</strong> and <strong>Credit Cards</strong> for your gratuities or specialized tours. However, we still recommend carrying some Colombian Pesos (COP) for small street purchases.</p>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </section>

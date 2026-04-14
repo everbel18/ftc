@@ -32,12 +32,125 @@
     <meta property="og:site_name" content="Free Tour Cartagena">
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "Free Tour Cartagena",
-      "url": "https://freetourcartagena.com/"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "TravelAgency",
+        "@id": "https://freetourcartagena.com/#organization",
+        "name": "Free Tour Cartagena",
+        "url": "https://freetourcartagena.com/",
+        "logo": "https://freetourcartagena.com/images/Free%20Tour%20Ctg.%20COL%202.png",
+        "image": "https://freetourcartagena.com/images/OLD%20CITY%205.jpg",
+        "description": "El proveedor pionero y mejor calificado de free walking tours en Cartagena, Colombia desde 2014, con más de 100.000 turistas satisfechos.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cartagena",
+          "addressRegion": "Bolívar",
+          "addressCountry": "CO",
+          "streetAddress": "Plaza Santa Teresa"
+        },
+        "telephone": "+573007884863",
+        "priceRange": "$",
+        "sameAs": [
+          "https://www.tripadvisor.co/Attraction_Review-g297476-d7212576-Reviews-Free_Tour_Cartagena-Cartagena_Cartagena_District_Bolivar_Department.html",
+          "https://www.instagram.com/free_tour_cartagena/",
+          "https://www.facebook.com/freetourcartagena",
+          "https://x.com/FTCartagena",
+          "https://www.tiktok.com/@free.tour.cartage"
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "TouristTrip",
+        "name": "Old City Free Walking Tour Cartagena (Español)",
+        "description": "Descubre la historia y la arquitectura de la Ciudad Amurallada de Cartagena con guías locales expertos.",
+        "provider": { "@id": "https://freetourcartagena.com/#organization" },
+        "itinerary": {
+          "@type": "ItemList",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "item": { "@type": "TouristAttraction", "name": "Plaza Santa Teresa" } },
+            { "@type": "ListItem", "position": 2, "item": { "@type": "TouristAttraction", "name": "Torre del Reloj" } },
+            { "@type": "ListItem", "position": 3, "item": { "@type": "TouristAttraction", "name": "Plaza San Pedro Claver" } }
+          ]
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "COP",
+          "description": "Tour gratuito basado en propinas."
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Por qué elegir Free Tour Cartagena?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Somos pioneros desde 2014 y hemos recibido el Certificado de Excelencia de TripAdvisor por 10 años consecutivos. Más de 100.000 turistas ya han confiado en nosotros para descubrir Cartagena de la mano de expertos guías locales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Dónde empieza el Free Tour Cartagena?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El punto de encuentro es en la Plaza Santa Teresa, afuera del Museo Naval. Busca a los guías con la sombrilla amarilla."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Los tours están disponibles en inglés?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, ofrecemos tours tanto en inglés como en español con guías profesionales especializados."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Solo ofrecen tours gratuitos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "¡No! Además de nuestros famosos Free Tours, ofrecemos experiencias especializadas como el Tour de Comida Callejera, City Tours Privados, excursiones a San Basilio de Palenque y recorridos culturales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Es seguro caminar por Cartagena?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, el Centro Histórico y Getsemaní son muy seguros para caminar. Nuestros tours guiados ofrecen una capa extra de seguridad y conocimiento local para una experiencia sin preocupaciones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué es mejor: Ciudad Amurallada o Getsemaní?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "¡Ambos son esenciales! La Ciudad Amurallada es histórica y arquitectónica, mientras que Getsemaní es bohemio y lleno de arte callejero. Nuestros tours combinan ambas áreas."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué ropa debo llevar al tour?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Recomendamos ropa ligera, zapatos cómodos, protector solar y sombrero. Los tours de la mañana son ideales para evitar el calor."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Puedo usar dólares o tarjetas de crédito?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "¡Sí! Para tu comodidad, aceptamos Dólares (USD) y Tarjetas de Crédito/Débito para tus gratificaciones o tours privados. De igual forma, recomendamos tener algunos Pesos (COP) para compras pequeñas en la calle."
+            }
+          }
+        ]
+      }
+    ]
     </script>
 
     <!-- Twitter -->
@@ -157,7 +270,7 @@
         <section class="tours section" id="tours">
             <div class="container">
                 <div class="section-title text-center">
-                    <h2>Nuestros Tours Destacados</h2>
+                    <h2>¿Qué hacer en Cartagena?</h2>
                     <p>Explora nuestras experiencias diseñadas para enamorarte de Cartagena.</p>
                 </div>
 
@@ -587,7 +700,7 @@
                             decoding="async">
                     </div>
                     <div class="about-content">
-                        <h2>Sobre Nosotros</h2>
+                        <h2>¿Por qué elegir Free Tour Cartagena?</h2>
                         <h3 class="subtitle">FREE TOUR CARTAGENA</h3>
                         <p>Estamos orgullosos de ser pioneros en ofrecer recorridos gratuitos a pie en Cartagena. Desde
                             2014, hemos recibido constantemente el Certificado de Excelencia de TripAdvisor, gracias a
@@ -644,6 +757,90 @@
                             <!-- Generados por JS -->
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq section bg-light" id="faq">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Preguntas Frecuentes</h2>
+                    <p>Todo lo que necesitas saber sobre nuestros tours en Cartagena.</p>
+                </div>
+                <div class="faq-grid">
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Por qué elegir Free Tour Cartagena?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Somos la opción favorita. Pioneros desde 2014 y galardonados con el Certificado de Excelencia de TripAdvisor por <strong>10 años seguidos</strong>. ¡Más de 100.000 turistas confían en nosotros!</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Dónde empieza el tour?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Nos encontramos en la <strong>Plaza Santa Teresa</strong>, frente al Museo Naval. Busca nuestras <strong>sombrillas amarillas</strong>.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Hay tours en inglés?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>¡Sí! Tenemos guías profesionales especializados para tours en inglés y español todos los días.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Solo ofrecen tours gratuitos?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>¡No!</strong> También ofrecemos tours de comida callejera, City Tours privados y excursiones a San Basilio de Palenque.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Es seguro caminar por Cartagena?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>Sí</strong>, el Centro Histórico y Getsemaní son zonas muy seguras. Sin embargo, unirte a un tour guiado es la mejor forma de recorrerlas con total tranquilidad y conocimiento local.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué es mejor: Ciudad Amurallada o Getsemaní?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>¡Ambos son imperdibles! La <strong>Ciudad Amurallada</strong> es historia pura, mientras que <strong>Getsemaní</strong> es arte, colorido y cultura local. Nuestros tours cubren ambas zonas para que no te pierdas nada.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué ropa debo llevar al tour?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Cartagena es calurosa. Recomendamos ropa ligera, zapatos cómodos, protector solar y sombrero. Nuestros <strong>tours de la mañana</strong> son ideales para evitar el fuerte sol del mediodía.</p>
+                        </div>
+                    </article>
+                    <article class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Puedo usar dólares o tarjetas?</h3>
+                            <div class="faq-icon"></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p><strong>¡Sí!</strong> Para tu comodidad, aceptamos <strong>Dólares (USD)</strong> y <strong>Tarjetas de Crédito/Débito</strong> para tus gratificaciones o tours privados. Igualmente, recomendamos tener algunos Pesos Colombianos (COP) para compras pequeñas en la calle.</p>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
