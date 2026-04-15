@@ -11,15 +11,6 @@
 
         gtag('config', 'AW-18088379600');
     </script>
-    <!-- Event snippet for Enviar formulario de clientes potenciales conversion page -->
-    <script>
-      gtag('event', 'conversion', {
-        'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
-        'value': 1.0,
-        'currency': 'COP'
-      });
-    </script>
-
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="i-Ymrdrwx2oy7xr4deEjilEba-neKweYPTjYNg5RTEI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,17 +19,17 @@
         content="Discover Cartagena with the best local guides. Free tours through the Historic Center and Getsemaní. Book now and secure your spot!">
     <meta name="keywords"
         content="Free Tour Cartagena, Walking Tour Cartagena, Getsemani, Old City, Free Tour, Local Guides, Cartagena Colombia">
-    <link rel="canonical" href="https://freetourcartagena.com/">
-    <link rel="alternate" hreflang="en" href="https://freetourcartagena.com/index.html">
-    <link rel="alternate" hreflang="es" href="https://freetourcartagena.com/index-es.html">
+    <link rel="canonical" href="https://ftc-wheat.vercel.app/">
+    <link rel="alternate" hreflang="en" href="https://ftc-wheat.vercel.app/index.html">
+    <link rel="alternate" hreflang="es" href="https://ftc-wheat.vercel.app/index-es.html">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://freetourcartagena.com/">
+    <meta property="og:url" content="https://ftc-wheat.vercel.app/">
     <meta property="og:title" content="The Best Free Walking Tour in Cartagena, Colombia">
     <meta property="og:description"
         content="Discover the history, culture, and flavor of Cartagena with our expert guides. Book your spot now!">
-    <meta property="og:image" content="https://freetourcartagena.com/images/OLD%20CITY%205.jpg">
+    <meta property="og:image" content="https://ftc-wheat.vercel.app/images/OLD%20CITY%205.jpg">
     <meta property="og:site_name" content="Free Tour Cartagena">
 
     <script type="application/ld+json">
@@ -46,11 +37,11 @@
       {
         "@context": "https://schema.org",
         "@type": "TravelAgency",
-        "@id": "https://freetourcartagena.com/#organization",
+        "@id": "https://ftc-wheat.vercel.app/#organization",
         "name": "Free Tour Cartagena",
-        "url": "https://freetourcartagena.com/",
-        "logo": "https://freetourcartagena.com/images/Free%20Tour%20Ctg.%20COL%202.png",
-        "image": "https://freetourcartagena.com/images/OLD%20CITY%205.jpg",
+        "url": "https://ftc-wheat.vercel.app/",
+        "logo": "https://ftc-wheat.vercel.app/images/Free%20Tour%20Ctg.%20COL%202.png",
+        "image": "https://ftc-wheat.vercel.app/images/OLD%20CITY%205.jpg",
         "description": "The pioneer and highest-rated free walking tour provider in Cartagena, Colombia since 2014, with over 100,000 satisfied tourists.",
         "address": {
           "@type": "PostalAddress",
@@ -165,11 +156,11 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://freetourcartagena.com/">
+    <meta property="twitter:url" content="https://ftc-wheat.vercel.app/">
     <meta property="twitter:title" content="The Best Free Walking Tour in Cartagena, Colombia">
     <meta property="twitter:description"
         content="Discover the history, culture, and flavor of Cartagena with our expert guides. Book your spot now!">
-    <meta property="twitter:image" content="https://freetourcartagena.com/images/OLD%20CITY%205.jpg">
+    <meta property="twitter:image" content="https://ftc-wheat.vercel.app/images/OLD%20CITY%205.jpg">
 
 
     <!-- Favicon -->
@@ -1134,15 +1125,22 @@
             style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" loading="lazy" decoding="async">
     </a>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/573007884863" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp">
-        <img src="images/WHATSAPP.jpg" alt="WhatsApp"
-            style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;" loading="lazy" decoding="async">
-    </a>
-
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Google Ads Conversion: se dispara SOLO al hacer clic en un botón de reserva
+        document.querySelectorAll('a[href*="forms.gle"]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
+                        'value': 1.0,
+                        'currency': 'COP'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

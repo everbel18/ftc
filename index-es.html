@@ -11,13 +11,6 @@
 
       gtag('config', 'AW-18088379600');
     </script>
-    <script>
-      gtag('event', 'conversion', {
-        'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
-        'value': 1.0,
-        'currency': 'COP'
-      });
-    </script>
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="i-Ymrdrwx2oy7xr4deEjilEba-neKweYPTjYNg5RTEI" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,16 +19,16 @@
         content="Descubre la magia de Cartagena con los mejores guías locales. Recorridos gratuitos por toda la ciudad. ¡Reserva hoy y asegura tu cupo!">
     <meta name="keywords" content="Free Tour Cartagena, Walking Tour Cartagena, Getsemaní, Centro Histórico, Tour Gratis, Guías Locales, Cartagena Colombia">
     
-    <link rel="canonical" href="https://freetourcartagena.com/index-es.html">
-    <link rel="alternate" hreflang="es" href="https://freetourcartagena.com/index-es.html">
-    <link rel="alternate" hreflang="en" href="https://freetourcartagena.com/index.html">
+    <link rel="canonical" href="https://ftc-wheat.vercel.app/index-es.html">
+    <link rel="alternate" hreflang="es" href="https://ftc-wheat.vercel.app/index-es.html">
+    <link rel="alternate" hreflang="en" href="https://ftc-wheat.vercel.app/index.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://freetourcartagena.com/index-es.html">
+    <meta property="og:url" content="https://ftc-wheat.vercel.app/index-es.html">
     <meta property="og:title" content="Free Walking Tour Cartagena | El Mejor Tour Local">
     <meta property="og:description" content="Descubre la historia, cultura y sabor de Cartagena con nuestros guías expertos. ¡Reserva tu lugar ahora!">
-    <meta property="og:image" content="https://freetourcartagena.com/images/OLD%20CITY%205.jpg">
+    <meta property="og:image" content="https://ftc-wheat.vercel.app/images/OLD%20CITY%205.jpg">
     <meta property="og:site_name" content="Free Tour Cartagena">
 
     <script type="application/ld+json">
@@ -43,11 +36,11 @@
       {
         "@context": "https://schema.org",
         "@type": "TravelAgency",
-        "@id": "https://freetourcartagena.com/#organization",
+        "@id": "https://ftc-wheat.vercel.app/#organization",
         "name": "Free Tour Cartagena",
-        "url": "https://freetourcartagena.com/",
-        "logo": "https://freetourcartagena.com/images/Free%20Tour%20Ctg.%20COL%202.png",
-        "image": "https://freetourcartagena.com/images/OLD%20CITY%205.jpg",
+        "url": "https://ftc-wheat.vercel.app/",
+        "logo": "https://ftc-wheat.vercel.app/images/Free%20Tour%20Ctg.%20COL%202.png",
+        "image": "https://ftc-wheat.vercel.app/images/OLD%20CITY%205.jpg",
         "description": "El proveedor pionero y mejor calificado de free walking tours en Cartagena, Colombia desde 2014, con más de 100.000 turistas satisfechos.",
         "address": {
           "@type": "PostalAddress",
@@ -162,10 +155,10 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://freetourcartagena.com/index-es.html">
+    <meta property="twitter:url" content="https://ftc-wheat.vercel.app/index-es.html">
     <meta property="twitter:title" content="Free Walking Tour Cartagena | El Mejor Tour Local">
     <meta property="twitter:description" content="Descubre la historia, cultura y sabor de Cartagena con nuestros guías expertos. ¡Reserva tu lugar ahora!">
-    <meta property="twitter:image" content="https://freetourcartagena.com/images/OLD%20CITY%205.jpg">
+    <meta property="twitter:image" content="https://ftc-wheat.vercel.app/images/OLD%20CITY%205.jpg">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/Free%20Tour%20Ctg.%20COL%202.png">
@@ -1034,6 +1027,20 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
+    <script>
+        // Google Ads Conversion: se dispara SOLO al hacer clic en un botón de reserva
+        document.querySelectorAll('a[href*="forms.gle"], button.open-booking-modal').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'conversion', {
+                        'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
+                        'value': 1.0,
+                        'currency': 'COP'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
