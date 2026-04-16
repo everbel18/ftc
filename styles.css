@@ -269,7 +269,7 @@ img {
 .hero {
   height: 100vh;
   min-height: 600px;
-  background-image: url('images/PORTADA.jpg');
+  background-image: url('images/portada.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1477,7 +1477,7 @@ img {
   }
 }
 .umbrella-ribbon {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/SANTA TERESA 2.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/santa-teresa-2.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;

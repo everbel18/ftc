@@ -104,13 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
             allImages = [...allImages, ...additionalImgs];
         }
         
-        // Limpiamos URLs (por si acaso vienen con rutas relativas o absolutas mezcladas)
+        // Limpiamos URLs
         const uniqueImages = [...new Set(allImages.map(src => {
-            // Si es relativa la convertimos en algo comparable (o simplemente confiamos en el string si es consistente)
             return src;
         }))];
 
-        // Determinar idioma para el CTA (ahora el inglés es el default e index.html)
+        // Determinar idioma para el CTA
         const isEnglish = !window.location.pathname.includes('-es');
         const ctaText = isEnglish ? 'BOOK NOW' : 'RESERVAR AHORA';
 
