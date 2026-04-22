@@ -1909,3 +1909,181 @@ img {
     padding: 0 1.25rem 1.1rem 1.25rem;
   }
 }
+
+/* =========================================================================
+   Promotional Popup Modal
+   ========================================================================= */
+.promo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+  backdrop-filter: blur(8px);
+}
+
+.promo-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.promo-content {
+  background: var(--white);
+  width: 95%;
+  max-width: 750px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  transform: translateY(30px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: none;
+}
+
+.promo-modal.active .promo-content {
+  transform: translateY(0) scale(1);
+}
+
+.promo-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: var(--white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  z-index: 100;
+}
+
+.promo-close:hover {
+  background: var(--secondary-color);
+  color: var(--dark-color);
+  transform: rotate(90deg);
+}
+
+/* Image Gallery in Promo */
+.promo-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(2, 140px);
+  gap: 4px;
+  background: #eee;
+}
+
+.promo-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%; /* Shift image up slightly */
+}
+
+.promo-img-main {
+  grid-row: span 2;
+}
+
+.promo-body {
+  padding: 1.5rem 2.5rem 2rem;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.promo-tag {
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.promo-title {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+  color: var(--dark-color);
+}
+
+.promo-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-muted);
+}
+
+.promo-details {
+  background: var(--light-color);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  text-align: left;
+}
+
+.promo-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.promo-details li {
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-main);
+}
+
+.promo-details li::before {
+  content: '✓';
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.promo-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.promo-footer .btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  box-shadow: 0 4px 10px rgba(255, 204, 0, 0.3);
+}
+
+.promo-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .promo-title { font-size: 1.8rem; }
+  .promo-body { padding: 2rem 1.5rem 2.5rem; }
+  .promo-gallery { grid-template-rows: repeat(2, 120px); }
+}
