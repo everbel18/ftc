@@ -1080,20 +1080,6 @@
     </div>
 
     <script src="script.js"></script>
-    <script>
-        // Google Ads Conversion: se dispara SOLO al hacer clic en un botón de reserva
-        document.querySelectorAll('a[href*="forms.gle"], button.open-booking-modal').forEach(function(btn) {
-            btn.addEventListener('click', function() {
-                if (typeof gtag === 'function') {
-                    gtag('event', 'conversion', {
-                        'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
-                        'value': 1.0,
-                        'currency': 'COP'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

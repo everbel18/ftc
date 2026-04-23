@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Muchas Gracias! - Free Tour Cartagena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffcc00;
+            --dark-color: #14213d;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            background-color: #000;
+        }
+        /* Fondo Collage */
+        .collage-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 8px;
+            padding: 8px;
+            z-index: -2;
+        }
+        .collage-bg div {
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+            border-radius: 4px;
+        }
+        .img1 { background-image: url('images/old-city-6.jpg'); }
+        .img2 { background-image: url('images/getsemani.jpg'); background-position: center 90% !important; }
+        .img3 { background-image: url('images/guias.jpg'); }
+        .img4 { background-image: url('images/palenque.jpeg'); }
+        .img5 { background-image: url('images/santa-teresa.jpg'); }
+        .img6 { background-image: url('images/bazurto.jpg'); }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(20,33,61,0.3) 0%, rgba(20,33,61,0.7) 100%);
+            z-index: -1;
+        }
+
+        .content {
+            max-width: 650px;
+            width: 90%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        p {
+            font-size: 1.4rem;
+            line-height: 1.5;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 1.2rem 3.5rem;
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-shadow: none;
+        }
+
+        .btn-back:hover {
+            transform: translateY(-5px);
+            background-color: white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            p { font-size: 1.1rem; }
+            .collage-bg { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18088379600"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18088379600');
+      
+      gtag('event', 'conversion', {
+          'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
+          'value': 1.0,
+          'currency': 'COP'
+      });
+    </script>
+</head>
+<body>
+    <div class="collage-bg">
+        <div class="img1"></div>
+        <div class="img2"></div>
+        <div class="img3"></div>
+        <div class="img4"></div>
+        <div class="img5"></div>
+        <div class="img6"></div>
+    </div>
+    <div class="overlay"></div>
+
+    <div class="content">
+        <h1>¡Muchas Gracias!</h1>
+        <p>Tu formulario de reserva se ha abierto en una nueva pestaña. Por favor, complétalo para asegurar tu cupo.</p>
+        <a href="index-es.html" class="btn-back">VOLVER AL INICIO</a>
+    </div>
+</body>
+</html>

@@ -251,4 +251,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === promoModal) closePromoModal();
         });
     }
+
+    // --- Google Ads Conversion Fix: Redirect to Thank You Page ---
+    document.addEventListener('click', function(e) {
+        var el = e.target;
+        while (el && el.tagName !== 'A') el = el.parentNode;
+        
+        if (el && el.href && el.href.indexOf('forms.gle') !== -1) {
+            var isSpanish = window.location.href.indexOf('-es') !== -1;
+            var thanksPage = isSpanish ? 'thanks-es.html' : 'thanks.html';
+            
+            setTimeout(function() {
+                window.location.href = thanksPage;
+            }, 600);
+        }
+    });
 });

@@ -2087,3 +2087,77 @@ img {
   .promo-body { padding: 2rem 1.5rem 2.5rem; }
   .promo-gallery { grid-template-rows: repeat(2, 120px); }
 }
+
+/* =========================================================================
+   Payments Section
+   ========================================================================= */
+.payments-section {
+  padding: 5rem 0;
+  background-color: var(--light-color);
+  text-align: center;
+}
+
+.payment-card {
+  background: var(--white);
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.payment-content {
+  text-align: left;
+}
+
+.payment-content h3 {
+  font-size: 2rem;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+.payment-content p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.bold-btn {
+  background-color: #ff3b30; /* Bold Red */
+  color: var(--white);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: var(--border-radius);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+}
+
+.bold-btn:hover {
+  background-color: #e6352b;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 59, 48, 0.3);
+}
+
+.payment-image img {
+  width: 100%;
+  border-radius: var(--border-radius);
+}
+
+@media (max-width: 768px) {
+  .payment-card {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  .payment-content {
+    text-align: center;
+  }
+}
