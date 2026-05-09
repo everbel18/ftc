@@ -2294,15 +2294,26 @@ span.flatpickr-day.disabled,
 /* Mobile Optimizations for Flatpickr */
 @media (max-width: 480px) {
   .flatpickr-calendar {
-    width: 290px !important; /* Slightly smaller for mobile */
+    width: auto !important;
+    max-width: 310px !important;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .flatpickr-innerContainer, .flatpickr-rContainer, .dayContainer, .flatpickr-days {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
   }
   .flatpickr-day {
-    height: 35px !important;
-    line-height: 35px !important;
-    max-width: 35px !important;
+    height: 36px !important;
+    line-height: 36px !important;
+    max-width: 36px !important;
     margin: 1px !important;
+  }
+  .flatpickr-weekday {
+    font-size: 0.7rem !important;
   }
   .native-form-group input, .native-form-group select, .native-form-group textarea {
     font-size: 16px !important; /* Prevents iOS auto-zoom */
