@@ -114,6 +114,13 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.6);
         }
 
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.8rem; }
             p { font-size: 1.1rem; }
@@ -148,8 +155,37 @@
 
     <div class="content">
         <h1>¡Muchas Gracias!</h1>
-        <p>Tu formulario de reserva se ha abierto en una nueva pestaña. Por favor, complétalo para asegurar tu cupo.</p>
-        <a href="index-es.html" class="btn-back">VOLVER AL INICIO</a>
+        <p>Tu reserva ha sido recibida. Por favor revisa tu correo electrónico, allí encontrarás la confirmación de tu reserva.</p>
+        
+        <!-- Reservation ID Box -->
+        <div id="reservation-info" style="margin-bottom: 30px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); display: none;">
+            <p style="font-size: 0.9rem; margin-bottom: 5px; opacity: 0.7;">ID de Reserva:</p>
+            <h2 id="res-id-display" style="font-size: 1.8rem; color: #ffffff; letter-spacing: 2px; margin-bottom: 0; font-weight: 700;">------</h2>
+        </div>
+
+        <div class="button-group">
+            <a href="https://maps.app.goo.gl/eVhXSZ4ovLQCzmcj7" target="_blank" class="btn-back">VER PUNTO DE ENCUENTRO</a>
+            <a href="index-es.html" class="btn-back" style="background-color: white;">VOLVER AL INICIO</a>
+        </div>
+
+        <!-- Discreet Cancellation Link -->
+        <div style="margin-top: 40px; opacity: 0.6; font-size: 0.85rem;">
+            ¿Hubo algún cambio? <a href="index-es.html?cancel=true" id="cancel-link" style="color: white; text-decoration: underline;">Cancela tu reserva aquí</a>
+        </div>
     </div>
+
+    <script>
+        // Read ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const resId = urlParams.get('id');
+        if (resId) {
+            document.getElementById('res-id-display').innerText = resId;
+            document.getElementById('reservation-info').style.display = 'block';
+            
+            // Optionally update cancel link if it needs the ID as a parameter
+            // const cancelLink = document.getElementById('cancel-link');
+            // cancelLink.href = `https://forms.gle/YOUR_CANCEL_FORM?entry.12345=${resId}`;
+        }
+    </script>
 </body>
 </html>

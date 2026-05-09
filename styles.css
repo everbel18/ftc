@@ -729,7 +729,7 @@ img {
 .form-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--dark-color);
 }
 
@@ -836,7 +836,7 @@ img {
   margin-bottom: 3rem;
 }
 
-.footer-col h3, .footer-col h4 {
+.footer-col h3 {
   color: var(--white);
   margin-bottom: 1.5rem;
 }
@@ -947,8 +947,11 @@ img {
 }
 
 .modal-header h2 {
+  font-family: 'Montserrat', sans-serif;
   color: var(--dark-color);
+  font-weight: 900;
   margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .modal-header p {
@@ -2019,6 +2022,9 @@ img {
 }
 
 .promo-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
   font-size: 2rem;
   margin-bottom: 0.5rem;
   line-height: 1.1;
@@ -2160,4 +2166,288 @@ img {
   .payment-content {
     text-align: center;
   }
+}
+
+/* Native Booking Modal Price Box */
+.native-price-box {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: #f8f9fa;
+  color: #14213d;
+  font-weight: 700;
+  text-align: center;
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+/* Native Booking Modal Button */
+.native-btn-submit {
+  width: 100%;
+  padding: 1.1rem;
+  background: linear-gradient(135deg, #ffcc00 0%, #ffb300 100%);
+  color: #14213d;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 1.5rem;
+}
+
+.native-btn-submit:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 204, 0, 0.5);
+  background: linear-gradient(135deg, #ffdb4d 0%, #ffcc00 100%);
+}
+
+.native-btn-submit:active {
+  transform: translateY(-1px);
+}
+
+.native-btn-submit:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Flatpickr Custom Styling */
+.flatpickr-calendar {
+  font-family: 'Montserrat', sans-serif !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+  border: none !important;
+  margin-top: 5px;
+  width: 307px !important; /* Proper width for 7 days + margins */
+}
+
+.flatpickr-months {
+  padding: 10px 0;
+}
+
+.flatpickr-current-month {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  width: 100% !important;
+  left: 0 !important;
+  padding: 0 !important;
+}
+
+.flatpickr-month {
+  height: 40px !important;
+}
+
+.flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-size: 1rem !important;
+  padding: 0 !important;
+}
+
+.flatpickr-current-month input.cur-year {
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+}
+
+.flatpickr-day {
+  font-size: 0.85rem !important;
+  height: 38px !important;
+  line-height: 38px !important;
+  max-width: 38px !important;
+  margin: 2px !important;
+}
+
+.flatpickr-weekdays {
+  height: 30px !important;
+}
+
+.flatpickr-weekday {
+  font-size: 0.75rem !important;
+  color: #888 !important;
+  font-weight: 600 !important;
+}
+
+.flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+  background: #006eb6 !important;
+  border-color: #006eb6 !important;
+}
+
+/* Extreme override for inactive days */
+span.flatpickr-day.prevMonthDay, 
+span.flatpickr-day.nextMonthDay, 
+span.flatpickr-day.disabled, 
+.flatpickr-day.disabled:hover {
+  color: #bbb !important;
+  opacity: 0.7;
+}
+
+/* Mobile Optimizations for Flatpickr */
+@media (max-width: 480px) {
+  .flatpickr-calendar {
+    width: 290px !important; /* Slightly smaller for mobile */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .flatpickr-day {
+    height: 35px !important;
+    line-height: 35px !important;
+    max-width: 35px !important;
+    margin: 1px !important;
+  }
+  .native-form-group input, .native-form-group select, .native-form-group textarea {
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
+  }
+}
+
+.flatpickr-day.today {
+  border-color: #ffcc00 !important;
+}
+/* =========================================================================
+   Native Booking & Cancellation Modals
+   ========================================================================= */
+.native-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    padding: 20px;
+}
+
+.native-modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.native-modal-content {
+    background: white;
+    color: #333;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    position: relative;
+    max-height: 95vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: modalSlideUp 0.4s ease-out;
+}
+
+@keyframes modalSlideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.native-modal-header {
+    background: var(--primary-color);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.native-modal-header h2 {
+    color: #14213d;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+.native-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: #14213d;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.native-modal-close:hover {
+    background: white;
+    transform: rotate(90deg);
+}
+
+.native-modal-body {
+    padding: 2.5rem;
+}
+
+.native-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.native-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #444;
+}
+
+.native-form-group input, 
+.native-form-group select, 
+.native-form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.native-form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.native-btn-submit {
+    background: var(--dark-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.native-btn-submit:hover {
+    background: var(--primary-color);
+    color: var(--dark-color);
+}
+
+.native-form-error {
+    color: #d32f2f;
+    background: #ffebee;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    display: none;
+    text-align: center;
+    font-weight: 600;
 }

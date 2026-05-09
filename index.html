@@ -177,8 +177,9 @@
     <link rel="shortcut icon" href="images/free-tour-ctg.-col-2.png">
 
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;500;700;900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@400;500;700;900&family=Montserrat:wght@400;500;700;900&family=Bebas+Neue&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -199,7 +200,7 @@
                     <li><a href="#tours" class="nav-link">Tours</a></li>
                     <li><a href="#meeting-point" class="nav-link">Meeting Point</a></li>
                     <li><a href="#about" class="nav-link">About Us</a></li>
-
+                    <li><a href="https://checkout.bold.co/payment/LNK_1KM2QXGAI1" class="nav-link" target="_blank" rel="noopener noreferrer" style="color: #ffc107; font-weight: 700;">Payments</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                     <li class="lang-selector-mobile" style="display:none; margin-top: 1rem;"><a href="index-es.html"
                             class="lang-toggle" title="Switch to Spanish"
@@ -242,6 +243,9 @@
                         rel="noopener noreferrer"
                         style="background-color: #ffc107; color: #333; font-weight: 800; font-size: 1.3rem; padding: 18px 50px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 6px 15px rgba(0,0,0,0.4); text-decoration: none; display: inline-block;">BOOK
                         NOW</a>
+                </div>
+                <div style="margin-top: 50px; opacity: 0.6; font-size: 0.85rem; text-align: center; width: 100%;">
+                    Changed your plans? <a href="index.html?cancel=true" id="cancel-link" style="color: white; text-decoration: underline;">Cancel your booking here</a>
                 </div>
             </div>
         </section>
@@ -455,16 +459,16 @@
                                         (simultaneously)</li>
                                     <li style="margin-bottom: 1px;"><strong
                                             style="color: var(--primary-color);">Duration:</strong> 4 hours</li>
-                                    <li style="margin-bottom: 5px;"><strong
-                                            style="color: var(--primary-color);">Price:</strong> $50 USD per person</li>
-                                    <li style="margin-bottom: 5px;"><strong
-                                            style="color: var(--primary-color);">Reservations:</strong> Minimum 24 hours
-                                        before</li>
-                                </ul>
-                                <p
-                                    style="font-size: 0.95rem; color: #555; background: #f9f9f9; padding: 10px; border-left: 4px solid var(--primary-color);">
-                                    <strong>Private Tour</strong> option available for $70 USD per person (minimum of
-                                    two people).</p>
+                                    <li style="margin-top: 10px;"><strong style="color: var(--primary-color);">Prices per person:</strong>
+                                        <ul style="list-style: disc; padding-left: 20px; font-size: 0.95rem; margin-top: 5px;">
+                                            <li>1-4 People: $70 USD each</li>
+                                            <li>5-7 People: $60 USD each</li>
+                                            <li>8-10 People: $55 USD each</li>
+                                            <li>11-15 People: $50 USD each</li>
+                                            <li>16-20 People: $45 USD each</li>
+                                            <li>21+ People: Special quote</li>
+                                        </ul>
+                                    </li>
                             </div>
                             <div class="tour-actions">
                                 <button class="btn btn-outline btn-sm" onclick="openTourDetails(this, 'City Tour')">View
@@ -558,9 +562,16 @@
                                     <li style="margin-bottom: 10px;"><strong
                                             style="color: var(--primary-color);">Time:</strong> 9:00 a.m. to 03:00 p.m.
                                     </li>
-                                    <li style="margin-bottom: 10px;"><strong
-                                            style="color: var(--primary-color);">Cost:</strong> According to the number
-                                        of participants. Special Price for groups of 5+</li>
+                                    <li style="margin-top: 10px;"><strong style="color: var(--primary-color);">Prices per person:</strong>
+                                        <ul style="list-style: disc; padding-left: 20px; font-size: 0.95rem; margin-top: 5px;">
+                                            <li>1-4 People: $100 USD each</li>
+                                            <li>5-7 People: $90 USD each</li>
+                                            <li>8-10 People: $80 USD each</li>
+                                            <li>11-14 People: $75 USD each</li>
+                                            <li>15-20 People: $70 USD each</li>
+                                            <li>21+ People: Special quote</li>
+                                        </ul>
+                                    </li>
                                     <li style="margin-bottom: 10px;"><strong
                                             style="color: var(--primary-color);">Reservations:</strong> Minimum 24 hours
                                         before departure.</li>
@@ -810,63 +821,7 @@
                     </div>
                 </section>
 
-                <!-- Testimonials Section -->
-                <section class="testimonials section bg-light" id="testimonials">
-                    <div class="container">
-                        <div class="testimonial-row">
-                            <div class="testimonial-info">
-                                <h2>Our Walkers</h2>
-                                <p>Thousands of travelers trust us to discover the magic of Cartagena.</p>
-                            </div>
 
-                            <div class="testimonial-slider-column">
-                                <div class="testimonial-slider-container">
-                                    <div class="testimonial-slider" id="testimonial-slider">
-                                        <!-- Slide 1 -->
-                                        <div class="testimonial-slide active">
-                                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                                            <p class="quote">"We did the free walking tour with Jairo. Not only was his
-                                                company pleasant, but all the history and information he provided was
-                                                very interesting! Highly recommended! Thanks Jairo! Jessica and
-                                                Gonzalo."</p>
-                                            <h4 class="author">- Jesshuko, TripAdvisor</h4>
-                                        </div>
-                                        <!-- Slide 2 -->
-                                        <div class="testimonial-slide">
-                                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                                            <p class="quote">"We had an incredible time. So interesting to learn about
-                                                the history and culture of Cartagena. Our guide Edgar was amazing and
-                                                explained everything very well, he is passionate, and answered every
-                                                question anyone asked. He said he had a gift for never forgetting a
-                                                face, and I believe him because a week later we were sitting in a bar
-                                                and he walked past us and immediately recognized us and said hello. 10 /
-                                                10"</p>
-                                            <h4 class="author">- Joe H, TripAdvisor</h4>
-                                        </div>
-                                        <!-- Slide 3 -->
-                                        <div class="testimonial-slide">
-                                            <div class="stars">⭐⭐⭐⭐⭐</div>
-                                            <p class="quote">"The tour is excellent; more than just a walk through the
-                                                historic center and Getsemaní, it was sharing a super pleasant time. We
-                                                learned about the history, places, and customs of the Cartagena
-                                                cultures... It is completely worth the time; the guide was super
-                                                attentive, respectful, and passionate about her work!"</p>
-                                            <h4 class="author">- Luisina S, Google Reviews</h4>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="slider-controls">
-                                    <button class="slider-btn" id="prev-btn" aria-label="Previous">❮</button>
-                                    <button class="slider-btn" id="next-btn" aria-label="Next">❯</button>
-                                </div>
-                                <div class="slider-dots" id="slider-dots">
-                                    <!-- Generated by JS -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
                 <!-- FAQ Section -->
                 <section class="faq section bg-light" id="faq">
@@ -1125,8 +1080,7 @@
             <button class="modal-close" onclick="closeDetailsModal()" aria-label="Close">&times;</button>
             <div class="modal-header" style="text-align: center; width: 100%;">
                 <h2 id="details-title"
-                    style="color: var(--primary-color); font-size: clamp(0.95rem, 3.5vw, 1.6rem); font-weight: 900; margin-bottom: 1rem; text-transform: uppercase; line-height: 1.3;">
-                    Tour Details</h2>
+                    style="font-family: 'Montserrat', sans-serif; font-weight: 900; color: #14213d; margin-bottom: 0.5rem; text-transform: uppercase;">Tour Details</h2>
             </div>
             <div class="modal-body" id="details-body"
                 style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem;">
@@ -1171,7 +1125,296 @@
         </div>
     </div>
 
+    <!-- Native Booking Form Modal -->
+    <style>
+        .native-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8); z-index: 9999;
+            display: none; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .native-modal-overlay.active { display: flex; opacity: 1; }
+        .native-modal-container {
+            background: #fff; width: 90%; max-width: 500px; border-radius: 12px;
+            padding: 2rem; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(20px); transition: transform 0.3s ease;
+            max-height: 90vh; overflow-y: auto;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .native-modal-overlay.active .native-modal-container { transform: translateY(0); }
+        .native-modal-close {
+            position: absolute; top: 15px; right: 20px; font-size: 1.8rem;
+            background: none; border: none; cursor: pointer; color: #555;
+        }
+        .native-form-group { margin-bottom: 1rem; }
+        .native-form-group label { display: block; font-weight: 500; margin-bottom: 0.4rem; color: #333; font-size: 0.85rem; }
+        .native-form-group input, .native-form-group select, .native-form-group textarea {
+            width: 100%; padding: 0.7rem; border: 1px solid #ccc; border-radius: 8px;
+            font-size: 0.9rem; font-family: 'Montserrat', sans-serif; font-weight: 400; color: #444;
+        }
+        .native-form-group input:focus, .native-form-group select:focus {
+            outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(253, 196, 0, 0.2);
+        }
+        .native-btn-submit {
+            width: 100%; padding: 1.2rem; 
+            background: linear-gradient(135deg, var(--primary-color) 0%, #004a7c 100%); 
+            color: #fff; font-family: 'Montserrat', sans-serif;
+            font-weight: 900; border: none; border-radius: 50px; font-size: 1.1rem;
+            cursor: pointer; text-transform: uppercase; margin-top: 1.5rem;
+            letter-spacing: 1px; box-shadow: 0 6px 20px rgba(0, 110, 182, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .native-btn-submit:hover { 
+            background: linear-gradient(135deg, #0085db 0%, var(--primary-color) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 110, 182, 0.5);
+        }
+        .native-btn-submit:active { transform: translateY(-1px); }
+        .native-btn-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; box-shadow: none; }
+        .native-form-error { color: #dc3545; font-size: 0.9rem; margin-top: 0.5rem; display: none; text-align: center; }
+
+        /* Flatpickr Overrides - Bebas Neue Style */
+        .flatpickr-calendar { font-family: 'Bebas Neue', cursive !important; }
+        .flatpickr-current-month, .flatpickr-day, .flatpickr-weekday { 
+            letter-spacing: 1px !important;
+        }
+        .flatpickr-day.disabled, 
+        .flatpickr-day.disabled:hover {
+            color: #bbb !important;
+            opacity: 0.7 !important;
+            cursor: not-allowed;
+        }
+        .flatpickr-day.prevMonthDay, 
+        .flatpickr-day.nextMonthDay {
+            visibility: hidden !important;
+        }
+        .flatpickr-day.selected {
+            background: #006eb6 !important;
+            border-color: #006eb6 !important;
+        }
+        .flatpickr-day.today {
+            border-color: #ffcc00 !important;
+        }
+
+        /* Mobile Fix for Centering */
+        @media (max-width: 480px) {
+            .flatpickr-calendar {
+                left: 50% !important;
+                margin-left: 0 !important;
+                transform: translateX(-50%) !important;
+                width: 280px !important;
+            }
+            .flatpickr-weekday {
+                width: 35px !important; /* Match mobile day width */
+                margin: 0 !important;
+                text-align: center !important;
+            }
+            .flatpickr-weekdays {
+                padding: 0 !important;
+                justify-content: center !important;
+            }
+            .flatpickr-day {
+                max-width: 35px !important;
+                height: 35px !important;
+                line-height: 35px !important;
+            }
+        }
+
+        /* General Header Fix - Distributed approach */
+        .flatpickr-weekdays {
+            display: flex !important;
+            justify-content: space-around !important;
+            width: 100% !important;
+            padding: 0 5px !important;
+            box-sizing: border-box !important;
+        }
+        .flatpickr-weekday {
+            flex: 1 !important;
+            text-align: center !important;
+            margin: 0 !important;
+            font-size: 0.85rem !important; /* Smaller weekdays */
+            color: #777 !important;
+        }
+
+        /* Flatpickr Month & Year Refinement */
+        .flatpickr-months {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            padding: 15px 20px !important;
+        }
+        .flatpickr-prev-month, .flatpickr-next-month {
+            position: static !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            z-index: 10 !important;
+        }
+        .flatpickr-month {
+            flex: 1 !important;
+            display: flex !important;
+            justify-content: center !important;
+            height: auto !important;
+            pointer-events: none !important; 
+        }
+        .flatpickr-current-month {
+            position: static !important;
+            width: auto !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 1.8rem !important; /* Larger month */
+            padding: 0 !important;
+            pointer-events: none !important;
+            height: 40px !important;
+        }
+        .flatpickr-monthDropdown-months {
+            appearance: none !important;
+            -webkit-appearance: none !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            font-family: 'Bebas Neue', cursive !important;
+            pointer-events: none !important;
+            display: inline-block !important;
+            line-height: 1 !important;
+            vertical-align: middle !important;
+        }
+        /* Completely hide the arrow icon */
+        .flatpickr-current-month .flatpickr-monthDropdown-months {
+            padding-right: 0 !important;
+        }
+        .flatpickr-monthDropdown-months + .cur-year {
+            margin-left: 10px !important;
+        }
+        .flatpickr-current-month .numInputWrapper {
+            width: auto !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+        .flatpickr-current-month .numInputWrapper span {
+            display: none !important;
+        }
+        .flatpickr-current-month input.cur-year {
+            font-weight: 700 !important;
+            cursor: default !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            font-family: 'Bebas Neue', cursive !important;
+            width: 55px !important;
+            line-height: 1 !important;
+            vertical-align: middle !important;
+            height: auto !important;
+        }
+    </style>
+    <div class="native-modal-overlay" id="native-booking-modal">
+        <div class="native-modal-container">
+            <button class="native-modal-close" onclick="closeNativeBookingModal()" aria-label="Close">&times;</button>
+            <h2 style="font-family: 'Montserrat', sans-serif; color: var(--primary-color); font-weight: 900; margin-bottom: 1.5rem; text-align: center; text-transform: uppercase;">Book Your Tour</h2>
+            <form id="native-booking-form">
+                <div class="native-form-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="nb-name" required>
+                </div>
+                <div class="native-form-group">
+                    <label>Email *</label>
+                    <input type="email" id="nb-email" required>
+                </div>
+                <div class="native-form-group">
+                    <label>WhatsApp Number *</label>
+                    <input type="tel" id="nb-whatsapp" placeholder="+1234567890" pattern="\+.*" title="Please start with +" required>
+                    <small style="display: block; color: #666; font-size: 0.8rem; margin-top: 4px;">Include your country code starting with + (e.g. +1...)</small>
+                </div>
+                <div class="native-form-group">
+                    <label>Nationality *</label>
+                    <input type="text" id="nb-nationality" list="countries-list" placeholder="Start typing your country..." required>
+                    <datalist id="countries-list">
+                        <!-- Options injected by JS -->
+                    </datalist>
+                </div>
+                <div class="native-form-group">
+                    <label>Select Tour *</label>
+                    <select id="nb-tour" required>
+                        <option value="" disabled selected>-- Choose a Tour --</option>
+                        <option value="Free Walking Tour">Free Walking Tour</option>
+                        <option value="City Tour">City Tour</option>
+                        <option value="Bazurto Market Food Tour">Bazurto Market Food Tour</option>
+                        <option value="San Basilio de Palenque Tour">San Basilio de Palenque Tour</option>
+                        <option value="Between Walls and Drums Walking Tour">Between Walls and Drums Walking Tour</option>
+                        <option value="Black History Private Walking Tour">Black History Private Walking Tour</option>
+                        <option value="Cartagena Street Food Tour">Cartagena Street Food Tour</option>
+                    </select>
+                </div>
+                <div class="native-form-group">
+                    <label>Language *</label>
+                    <select id="nb-language" required>
+                        <option value="" disabled selected>-- Choose Language --</option>
+                        <option value="English">English</option>
+                        <option value="Español">Español</option>
+                    </select>
+                </div>
+                <div class="native-form-group" id="nb-fwt-options-group" style="display: none;">
+                    <label>Free Walking Tour Option *</label>
+                    <select id="nb-fwt-type">
+                        <!-- Options injected by JS -->
+                    </select>
+                </div>
+                <div class="native-form-group">
+                    <label>Date *</label>
+                    <input type="date" id="nb-date" required min="">
+                    <div id="nb-promo-note" style="margin-top: 10px; padding: 10px; background: #fffde7; border-left: 4px solid #fbc02d; font-size: 0.9rem; display: none; color: #333;"></div>
+                </div>
+                <div class="native-form-group">
+                    <div id="nb-pax-price-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label>Number of People *</label>
+                            <input type="number" id="nb-pax" min="1" max="50" value="1" required style="width: 100%;">
+                        </div>
+                        <div id="nb-price-wrapper">
+                            <label>Total Price</label>
+                            <div id="nb-price-display" class="native-price-box">Free / Tips</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="native-form-group">
+                    <label>Comments (Optional)</label>
+                    <textarea id="nb-comments" rows="2"></textarea>
+                </div>
+                <div id="nb-error-msg" class="native-form-error">An error occurred. Please try again.</div>
+                <button type="submit" class="native-btn-submit" id="nb-submit-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cancellation Modal -->
+    <div id="cancel-modal" class="native-modal-overlay">
+        <div class="native-modal-content" style="max-width: 450px; text-align: center;">
+            <span class="native-modal-close" id="cancel-modal-close" onclick="closeCancelModal()">&times;</span>
+            <div class="native-modal-header" style="background: #f8f9fa; border-bottom: 1px solid #eee; padding: 1.5rem; margin-bottom: 0;">
+                <h2 style="color: #333; font-size: 1.4rem; margin: 0;">Cancel Reservation</h2>
+                <p style="font-size: 0.9rem; color: #666; margin-top: 5px;">Enter your booking ID to cancel your tour.</p>
+            </div>
+            <div class="native-modal-body" style="padding: 2rem;">
+                <form id="cancel-form">
+                    <div class="native-form-group" style="margin-bottom: 1.5rem;">
+                        <input type="text" id="cancel-id" placeholder="Ex: FTC-20240506-ABCD" required 
+                               style="width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-family: monospace; font-size: 1.1rem; text-align: center;">
+                    </div>
+                    <div id="cancel-error-msg" class="native-form-error" style="display: none; margin-bottom: 1rem;"></div>
+                    <div id="cancel-success-msg" style="display: none; color: #2e7d32; background: #e8f5e9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        Booking successfully cancelled! You will receive a confirmation email shortly.
+                    </div>
+                    <button type="submit" class="native-btn-submit" id="cancel-submit-btn" style="background-color: #333; width: 100%;">Cancel my Booking</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="script.js"></script>
 </body>
 
