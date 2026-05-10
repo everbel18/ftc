@@ -907,7 +907,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const thanksPage = isSpanish ? 'thanks-es.html' : 'thanks.html';
                         window.location.href = `${thanksPage}?id=${reservationId}`;
                     } else if (data.status === 'blocked') {
-                        errorMsg.innerText = isSpanish ? 'Lo sentimos, esa fecha y hora no tienen disponibilidad.' : 'Sorry, that date and time are fully booked.';
+                        errorMsg.innerText = isSpanish ? 'El tour que reservaste no está disponible en ese horario. Por favor, cambia la hora, la fecha o la ruta elegida.' : 'The tour you booked is not available at that time. Please change the time, date, or chosen route.';
                         errorMsg.style.display = 'block';
                         submitBtn.innerText = originalBtnText;
                         submitBtn.disabled = false;
