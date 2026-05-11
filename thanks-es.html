@@ -135,11 +135,17 @@
       gtag('js', new Date());
       gtag('config', 'AW-18088379600');
       
-      gtag('event', 'conversion', {
-          'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
-          'value': 1.0,
-          'currency': 'COP'
-      });
+      // Solo dispara la conversión si hay un ID de reserva real y no se ha contado antes
+      const _urlParams = new URLSearchParams(window.location.search);
+      const _resId = _urlParams.get('id');
+      if (_resId && !localStorage.getItem('conv_' + _resId)) {
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
+              'value': 1.0,
+              'currency': 'COP'
+          });
+          localStorage.setItem('conv_' + _resId, '1');
+      }
     </script>
 </head>
 <body>
