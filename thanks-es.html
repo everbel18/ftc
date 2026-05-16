@@ -140,9 +140,10 @@
       const _resId = _urlParams.get('id');
       if (_resId && !localStorage.getItem('conv_' + _resId)) {
           gtag('event', 'conversion', {
-              'send_to': 'AW-18088379600/fmqICPHt5JscENCJm7FD',
+              'send_to': 'AW-18088379600/pOWtCO_Kmq4cENCJm7FD',
               'value': 1.0,
-              'currency': 'COP'
+              'currency': 'COP',
+              'transaction_id': _resId
           });
           localStorage.setItem('conv_' + _resId, '1');
       }
