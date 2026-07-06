@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img src="${uniqueImages[0]}" class="modal-details-main-img" id="modal-main-img" alt="${title}">
                     ${thumbsHTML}
                     <div class="modal-details-cta-wrapper" style="margin-top: 2rem; display: flex; justify-content: center;">
-                        <a href="https://forms.gle/qF7ktyChunCXRwVp8" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="text-decoration:none; display:inline-block; text-align:center; width: 100%; padding: 1.2rem; font-size: 1.2rem;">
+                        <a href="#" class="btn btn-primary btn-open-booking" style="text-decoration:none; display:inline-block; text-align:center; width: 100%; padding: 1.2rem; font-size: 1.2rem;">
                             ${ctaText}
                         </a>
                     </div>
@@ -237,8 +237,11 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (promoModal) {
+        // Feature toggle to show promotional modal on page load (set to false to disable)
+        const showPromoAutomatically = false;
+
         // Show after 2 seconds on load, but only once per session
-        if (!sessionStorage.getItem('promoShown')) {
+        if (showPromoAutomatically && !sessionStorage.getItem('promoShown')) {
             setTimeout(() => {
                 promoModal.classList.add('active');
                 document.body.style.overflow = 'hidden';
@@ -766,8 +769,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!el || !el.href) return;
 
-        // 1. Intercept Booking Links (Google Forms links used as buttons)
-        if (el.href.indexOf('forms.gle') !== -1 && el.id !== 'cancel-link') {
+        // 1. Intercept Booking Links (Native Modal buttons)
+        if (el.classList.contains('btn-open-booking')) {
             e.preventDefault();
 
             // Auto-select tour logic

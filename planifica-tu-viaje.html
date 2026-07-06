@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18088379600"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18088379600');
+    </script>
+    <!-- Microsoft Clarity Tracking Code -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wdgn4gk2gu");
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planifica tu Viaje por el Mundo | Free Tour Cartagena</title>
+    <meta name="description" content="Diseña tu itinerario ideal nacional o internacional. Vuelos, hoteles, actividades y soporte local con Mara Romero y Free Tour Cartagena.">
+    
+    <link rel="icon" type="image/png" href="images/free-tour-ctg.-col-2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        .service-hero {
+            padding: 8rem 0 5rem;
+            min-height: auto;
+            background: #14213d; /* Fondo oscuro sólido sin imagen */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .service-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .service-hero-badge {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .service-hero-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            text-transform: uppercase;
+        }
+
+        .service-hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+            opacity: 0.95;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .btn-whatsapp-cta {
+            background-color: #25d366;
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        .btn-whatsapp-cta:hover {
+            background-color: #128c7e;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(37, 211, 102, 0.5);
+            color: var(--white);
+        }
+
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-intro p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border-top: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .benefit-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-color);
+            font-weight: 700;
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .profile-container {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius-lg);
+            padding: 4rem 3rem;
+            margin-top: 4rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .profile-flex {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-avatar {
+            flex: 0 0 250px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            border: 6px solid var(--white);
+            margin: 0 auto;
+        }
+
+        .profile-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-content h3 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-role {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .profile-content p {
+            color: var(--text-main);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: justify;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .destination-card {
+            position: relative;
+            height: 250px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .destination-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .destination-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(20,33,61,0.85) 0%, rgba(20,33,61,0.1) 70%);
+            display: flex;
+            align-items: flex-end;
+            padding: 1.5rem;
+            color: var(--white);
+        }
+
+        .destination-overlay h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .steps-container {
+            margin-top: 3rem;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            font-size: 2rem;
+            font-weight: 900;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 6px 15px rgba(255, 204, 0, 0.3);
+        }
+
+        .step-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .step-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .whatsapp-section-cta {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 5rem 2rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .whatsapp-section-cta h2 {
+            font-size: 2.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .whatsapp-section-cta p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Sticky bottom wrapper specifically for this page */
+        .sticky-whatsapp-wrap {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-whatsapp-wrap {
+                display: block;
+            }
+            .service-hero {
+                padding: 6rem 0 4rem;
+                margin-top: 70px;
+            }
+            .profile-flex {
+                gap: 2rem;
+            }
+            .profile-avatar {
+                flex: 0 0 180px;
+                width: 180px;
+                height: 180px;
+            }
+            .whatsapp-section-cta {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="index-es.html" class="logo">
+                <span class="logo-img-wrapper">
+                    <img src="images/free-tour-ctg.-col-2.png" alt="Free Tour Cartagena Logo" class="logo-img"
+                        loading="lazy" decoding="async">
+                </span>
+            </a>
+
+            <nav class="navbar" id="navbar">
+                <ul class="nav-list" style="align-items: center;">
+                    <li><a href="index-es.html#hero" class="nav-link">Inicio</a></li>
+                    <li><a href="index-es.html#tours" class="nav-link">Tours</a></li>
+                    <li><a href="index-es.html#meeting-point" class="nav-link">Punto de Encuentro</a></li>
+                    <li><a href="index-es.html#about" class="nav-link">Sobre Nosotros</a></li>
+                    <li><a href="https://checkout.bold.co/payment/LNK_1KM2QXGAI1" class="nav-link" target="_blank" rel="noopener noreferrer" style="color: #ffc107; font-weight: 700;">Pagos</a></li>
+                    <li><a href="index-es.html#contact" class="nav-link">Contacto</a></li>
+                    <li class="lang-selector-mobile" style="display:none; margin-top: 1rem;"><a href="plan-your-trip.html"
+                            class="lang-toggle" title="Switch to English"
+                            style="font-size: 1.5rem; text-decoration: none;"><img src="images/us-flag.png"
+                                alt="English"
+                                style="width:24px; height:18px; object-fit:cover; border-radius:2px; vertical-align: middle;"
+                                loading="lazy" decoding="async"></a>
+                    </li>
+                </ul>
+                <div class="nav-actions" style="display: flex; gap: 1rem; align-items: center;">
+                    <a href="plan-your-trip.html" class="lang-toggle desktop-lang" title="Switch to English"
+                        style="font-size: 1.5rem; text-decoration: none; cursor: pointer; display: flex; align-items: center;"><img
+                            src="images/us-flag.png" alt="English"
+                            style="width:28px; height:20px; object-fit:cover; border-radius:3px;" loading="lazy"
+                            decoding="async"></a>
+                    <a href="index-es.html" class="btn btn-primary nav-btn btn-open-booking"
+                        style="margin:0; text-decoration:none; display:inline-block;">Reservar ahora</a>
+                </div>
+            </nav>
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="service-hero">
+            <div class="service-hero-content fade-in">
+                <div class="service-hero-badge">Servicio de Agencia de Viajes</div>
+                <h1 class="service-hero-title">Planifica tu viaje <br><span style="font-size: 0.6em; opacity: 0.9; font-weight: 700; display: block; margin: 0.5rem 0;">con</span><span class="text-accent" style="display: block; margin-top: 0.5rem;">Free Tour Cartagena</span></h1>
+                <p class="service-hero-subtitle">Diseñamos el itinerario ideal para tus próximas vacaciones en cualquier lugar de Colombia o del mundo, completamente a tu medida.</p>
+                <a href="https://wa.me/573007880403?text=Hola%20Mara%20y%20equipo%20de%20Free%20Tour%20Cartagena,%20me%20gustar%C3%ADa%20planificar%20un%20viaje%20con%20ustedes." class="btn btn-whatsapp-cta" target="_blank" rel="noopener noreferrer">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle;"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.976L2 22l5.233-1.371a9.94 9.94 0 0 0 4.773 1.219h.004c5.505 0 9.989-4.478 9.99-9.984A9.99 9.99 0 0 0 12.012 2zm5.727 14.184c-.246.696-1.435 1.282-1.97 1.341-.484.053-.972.23-3.116-.607-2.731-1.07-4.492-3.83-4.628-4.012-.136-.182-1.107-1.47-1.107-2.808 0-1.338.702-1.996.953-2.259.25-.263.551-.33.738-.33h.525c.166 0 .386-.063.606.467.225.541.77 1.88.837 2.013.067.132.112.285.025.46-.087.175-.13.285-.26.438-.13.153-.274.341-.392.457-.132.13-.27.271-.115.539.155.267.688 1.139 1.476 1.838.995.882 1.838 1.155 2.1 1.287.262.132.413.11.565-.066.152-.175.655-.76.83-1.02.176-.263.35-.22.589-.131.24.09 1.524.717 1.787.848.263.131.438.197.503.31.066.113.066.657-.18 1.353z"/></svg>
+                    Planificar Viaje por WhatsApp
+                </a>
+            </div>
+        </section>
+
+        <!-- Explicación del Servicio -->
+        <section class="section">
+            <div class="container">
+                <div class="section-intro">
+                    <div class="section-title text-center">
+                        <h2>Tu Viaje, Sin Complicaciones</h2>
+                    </div>
+                    <p>Sabemos que organizar un viaje puede ser abrumador. Por eso, extendemos nuestra experiencia local en Cartagena para ayudarte a diseñar y reservar tu aventura en cualquier rincón del mundo. Nos encargamos de la logística para que tú solo te enfoques en disfrutar.</p>
+                </div>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🗺️</div>
+                        <h3>Itinerarios Completos</h3>
+                        <p>Diseñamos rutas detalladas día a día. Rutas optimizadas con tiempos de traslado sugeridos, actividades locales y consejos prácticos en tu destino.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">✈️</div>
+                        <h3>Búsqueda de Vuelos y Hoteles</h3>
+                        <p>Buscamos y comparamos por ti las mejores opciones de hospedaje y vuelos que se adapten a tu estilo de viaje y presupuesto, optimizando tarifas.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎟️</div>
+                        <h3>Tours y Experiencias</h3>
+                        <p>Reservas en las atracciones más famosas o experiencias secretas fuera del radar. Acceso prioritario y guías de confianza en cada destino.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🛡️</div>
+                        <h3>Seguridad y Asistencia</h3>
+                        <p>Te apoyamos con seguros de viaje, requisitos de visado y asistencia ante cualquier imprevisto durante tu estadía.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🩺</div>
+                        <h3>Asesoría Médica en Viajes</h3>
+                        <p>Viaja con tranquilidad. Al ser Mara médico profesional, te orienta en la preparación de botiquines personalizados, vacunas obligatorias según el destino y te brinda guía básica de salud durante tu viaje.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👨‍👩‍👧‍👦</div>
+                        <h3>Viajes Familiares y de Grupos</h3>
+                        <p>Especialistas en coordinar viajes complejos de familias de múltiples generaciones o grupos de amigos, diseñando itinerarios con un ritmo balanceado y actividades que todos disfruten.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil de Mara Romero -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="profile-container">
+                    <div class="profile-flex">
+                        <div class="profile-avatar">
+                            <img src="images-viajes/mara.jpg" alt="Mara Romero" onerror="this.src='images/free-tour-ctg.-col-2.png'">
+                        </div>
+                        <div class="profile-content">
+                            <h3>Mara Romero</h3>
+                            <div class="profile-role">Lead Travel Planner & Asesora de Viajes</div>
+                            <p>Detrás de cada recomendación no hay solo teoría, hay vivencias reales. Con más de 120 ciudades recorridas y más de 50 países visitados, he disfrutado en primera persona de innumerables destinos, conociendo los pros y contras para diseñar el viaje perfecto, ya sea en familia, en pareja, con amigos o en solitario, siempre adaptado a tus necesidades.</p>
+                            <a href="https://wa.me/573007880403?text=Hola%20Mara,%20vi%20tu%20perfil%20en%20la%20web%20y%20me%20gustar%C3%ADa%20que%20me%20ayudes%20a%20planificar%20un%20viaje." class="btn btn-whatsapp-cta" target="_blank" rel="noopener noreferrer" style="font-size: 1rem; padding: 0.8rem 2rem;">
+                                Conversar con Mara
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinos Populares -->
+        <section class="section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Destinos sin límites</h2>
+                    <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto 3rem;">¿A dónde te gustaría ir? Te asesoramos en cualquier parte del mundo. A continuación, algunos de los destinos que Mara ha visitado o recomendado:</p>
+                </div>
+
+                <!-- Grid de destinos (orden alfabético) -->
+                <div class="destination-grid">
+                    <div class="destination-card">
+                        <img src="images-viajes/argentina.jpg" alt="Argentina">
+                        <div class="destination-overlay"><h4>Argentina</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/brasil.jpg" alt="Brasil">
+                        <div class="destination-overlay"><h4>Brasil</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/egipto.jpg" alt="Egipto" style="object-position: right center;">
+                        <div class="destination-overlay"><h4>Egipto</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/espana.jpg" alt="España">
+                        <div class="destination-overlay"><h4>España</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/usa.jpg" alt="Estados Unidos">
+                        <div class="destination-overlay"><h4>Estados Unidos</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/francia.jpg" alt="Francia">
+                        <div class="destination-overlay"><h4>Francia</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/italia.jpg" alt="Italia">
+                        <div class="destination-overlay"><h4>Italia</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/mexico.jpg" alt="México">
+                        <div class="destination-overlay"><h4>México</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/peru.jpg" alt="Perú" style="object-position: right center;">
+                        <div class="destination-overlay"><h4>Perú</h4></div>
+                    </div>
+                    <div class="destination-card">
+                        <img src="images-viajes/uk.jpg" alt="Reino Unido">
+                        <div class="destination-overlay"><h4>Reino Unido</h4></div>
+                    </div>
+                    <div class="destination-card" style="grid-column: 1 / -1; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); display: flex; align-items: center; justify-content: center; min-height: 120px; border-radius: var(--border-radius-lg); margin-top: 1rem;">
+                        <div style="text-align: center; color: white; padding: 1.5rem;">
+                            <h4 style="margin: 0; font-size: 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px;">Y muchos más destinos del mundo...</h4>
+                            <p style="font-size: 0.95rem; opacity: 0.95; margin: 0.4rem 0 0;">¡Tu próximo viaje soñado te espera!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Cómo funciona -->
+        <section class="section bg-light">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2>Cómo funciona</h2>
+                </div>
+
+                <div class="steps-container">
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <h4>Escríbenos por WhatsApp</h4>
+                            <p>Haz clic en el enlace y cuéntanos tus ideas básicas: fechas, destino soñado y presupuesto.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <h4>Recibe tu Propuesta</h4>
+                            <p>Mara diseñará una propuesta preliminar con opciones de vuelos, estadías y la mejor ruta día a día.</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <h4>¡A Viajar!</h4>
+                            <p>Una vez definidos todos los detalles, reservamos todo y viajas con asistencia durante tu aventura.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="section" style="padding-bottom: 7rem;">
+            <div class="container">
+                <div class="whatsapp-section-cta">
+                    <h2>¿Listo para empezar a planificar?</h2>
+                    <p>Conversa directamente con Mara y empieza a diseñar tu itinerario ideal hoy mismo. Servicio personalizado, rápido y con la confianza de Free Tour Cartagena.</p>
+                    <a href="https://wa.me/573007880403?text=Hola%20Mara%20y%20equipo%20de%20Free%20Tour%20Cartagena,%20me%20gustar%C3%ADa%20planificar%20un%20viaje%20con%20ustedes." class="btn btn-whatsapp-cta" target="_blank" rel="noopener noreferrer">
+                        💬 Escríbenos por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Sticky Bottom Bar on Mobile -->
+    <div class="sticky-whatsapp-wrap">
+        <a href="https://wa.me/573007880403?text=Hola%20Mara%20y%20equipo%20de%20Free%20Tour%20Cartagena,%20me%20gustar%C3%ADa%20planificar%20un%20viaje%20con%20ustedes." class="btn btn-whatsapp-cta" style="display: flex; width: 100%; justify-content: center;" target="_blank" rel="noopener noreferrer">
+            💬 PLANIFICAR MI VIAJE
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Free Tour Cartagena · everbel@freetourcartagena.com</p>
+        <p>Meeting Point: Plaza Santa Teresa, Walled City</p>
+    </footer>
+
+    <!-- Hamburger menu toggle script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.getElementById('hamburger');
+            const navbar = document.getElementById('navbar');
+            if (hamburger && navbar) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navbar.classList.toggle('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

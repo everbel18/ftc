@@ -167,6 +167,44 @@ img {
   padding: 0.8rem;
 }
 
+.btn-hero-map {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 14px 35px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: var(--border-radius);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 1);
+  cursor: pointer;
+}
+
+.btn-hero-map:hover {
+  background-color: var(--white);
+  color: var(--dark-color);
+  border-color: var(--white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.btn-hero-map svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-hero-map:hover svg {
+  transform: scale(1.15) translateY(-1px);
+}
+
 /* =========================================================================
    Header & Navegación
    ========================================================================= */
@@ -278,6 +316,7 @@ img {
   justify-content: center;
   text-align: center;
   color: var(--white);
+  padding-top: 80px; /* Compensa la altura del header fijo */
 }
 
 .hero-overlay {
@@ -2461,4 +2500,72 @@ span.flatpickr-day.disabled,
     display: none;
     text-align: center;
     font-weight: 600;
+}
+
+/* Anniversary Ribbon */
+.hero-ribbon {
+  position: absolute;
+  top: 105px;
+  left: 25px;
+  background: var(--secondary-color); /* Solid yellow */
+  color: #14213d;
+  padding: 8px 18px;
+  font-weight: 900;
+  font-size: 0.9rem;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  border-radius: 50px; /* Pill shape is more friendly and modern */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: rotate(-4deg);
+  transform-origin: center;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid #ffffff; /* Contrast border to pop out */
+  animation: party-wiggle 4s ease-in-out infinite;
+}
+
+.hero-ribbon:hover {
+  transform: rotate(2deg) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes party-wiggle {
+  0%, 100% {
+    transform: rotate(-4deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-ribbon {
+    top: 95px;
+    left: 15px;
+    font-size: 0.75rem;
+    padding: 5px 12px;
+    transform: rotate(-3deg);
+  }
+}
+
+/* Tours TripAdvisor Widget — float right beside the centered title */
+.tours-ta-widget-absolute {
+  float: right;
+  margin-top: -60px; /* Pull up to align with the title vertically */
+  margin-right: 0;
+  z-index: 10;
+  line-height: 0; /* Removes extra spacing below the image */
+}
+
+@media (max-width: 991px) {
+  .tours-ta-widget-absolute {
+    float: none;
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
 }
