@@ -1,0 +1,29 @@
+# Habilitar el motor de redirección de Apache
+RewriteEngine On
+
+# Redireccionar cualquier petición con saltos de línea (%0A o \n) o retornos de carro (%0D) (ej. enlaces de Google Maps con saltos de línea accidentales)
+RewriteCond %{THE_REQUEST} \s/.*(?:%0A|%0D|\r|\n) [NC,OR]
+RewriteCond %{REQUEST_URI} [\r\n]
+RewriteRule ^.*$ / [L,R=301]
+
+
+# 1. Redireccionar la antigua ruta /es o /es/ a index-es.html de forma permanente (301)
+RewriteRule ^es/?$ index-es.html [L,R=301,NC]
+
+# 2. Redireccionar carpetas/rutas comunes antiguas sin extensión a su equivalente .html
+# Por ejemplo: /plan-your-trip -> /plan-your-trip.html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(plan-your-trip|planifica-tu-viaje|privacy-policy|politica-privacidad|terms-conditions|terminos-condiciones|thanks|thanks-es|landing)$ $1.html [L,R=301,NC]
+
+# 3. Redireccionar cualquier otra ruta antigua inexistente al inicio respectivo (inglés/español)
+# Si contiene "es", redirigir al inicio en español, sino al inicio en inglés
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^es/.*$ index-es.html [L,R=301,NC]
+
+# Opcional: Permitir que archivos .html se sirvan sin la extensión en la URL
+# Si alguien entra a /plan-your-trip, se muestra el archivo plan-your-trip.html de forma interna
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]

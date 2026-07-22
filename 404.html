@@ -2,6 +2,76 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <script>
+        // Redirección automática para rutas antiguas o con caracteres extraños (Google Maps, ChatGPT, etc.)
+        (function() {
+            var rawPath = "";
+            try {
+                rawPath = decodeURIComponent(window.location.pathname);
+            } catch(e) {
+                rawPath = window.location.pathname;
+            }
+            // Eliminar espacios, saltos de línea (como %0A, \n, %0D) y la barra diagonal final
+            var path = rawPath.replace(/%0a|%0d|\s+/gi, "").toLowerCase().replace(/\/$/, "");
+            var search = window.location.search;
+            var hash = window.location.hash;
+
+            var redirects = {
+                "/index": "/index.html",
+                "/plan-your-trip": "/plan-your-trip.html",
+                "/privacy-policy": "/privacy-policy.html",
+                "/terms-conditions": "/terms-conditions.html",
+                "/thanks": "/thanks.html",
+                "/landing": "/landing.html",
+                
+                "/es": "/index-es.html",
+                "/index-es": "/index-es.html",
+                "/planifica-tu-viaje": "/planifica-tu-viaje.html",
+                "/politica-privacidad": "/politica-privacidad.html",
+                "/terminos-condiciones": "/terminos-condiciones.html",
+                "/thanks-es": "/thanks-es.html"
+            };
+
+            var target = null;
+            
+            if (path === "") {
+                // Si el path queda vacío (por ejemplo, /%0A), redirigir al inicio correspondiente
+                var isSpanish = (navigator.language || navigator.userLanguage || "").toLowerCase().indexOf("es") === 0;
+                target = isSpanish ? "/index-es.html" : "/index.html";
+            } else if (redirects[path]) {
+                target = redirects[path];
+            } else if (path === "/es/") {
+                target = "/index-es.html";
+            } else if (path.startsWith("/es/")) {
+                target = "/index-es.html";
+            } else {
+                var cleanPath = path.substring(path.lastIndexOf("/"));
+                if (cleanPath === "/plan-your-trip") target = "/plan-your-trip.html";
+                else if (cleanPath === "/planifica-tu-viaje") target = "/planifica-tu-viaje.html";
+                else if (cleanPath === "/privacy-policy") target = "/privacy-policy.html";
+                else if (cleanPath === "/politica-privacidad") target = "/politica-privacidad.html";
+                else if (cleanPath === "/terms-conditions") target = "/terms-conditions.html";
+                else if (cleanPath === "/terminos-condiciones") target = "/terminos-condiciones.html";
+                else if (cleanPath === "/thanks") target = "/thanks.html";
+                else if (cleanPath === "/thanks-es") target = "/thanks-es.html";
+                else if (cleanPath === "/landing") target = "/landing.html";
+                
+                // Redirecciones por palabras clave (reservas, contacto, etc.)
+                else if (path.indexOf("book") !== -1 || path.indexOf("reserva") !== -1) {
+                    target = path.indexOf("/es") !== -1 ? "/index-es.html#booking" : "/index.html#booking";
+                } else if (path.indexOf("contact") !== -1 || path.indexOf("contacto") !== -1) {
+                    target = path.indexOf("/es") !== -1 ? "/index-es.html#contact" : "/index.html#contact";
+                } else if (path.length > 1) {
+                    // Si contiene "es", redirigir a inicio en español; de lo contrario, inglés
+                    target = (path.indexOf("es") !== -1 || path.indexOf("-es") !== -1) ? "/index-es.html" : "/index.html";
+                }
+            }
+
+            if (target) {
+                window.location.replace(target + search + hash);
+            }
+        })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página no encontrada | Free Tour Cartagena</title>
     <link rel="icon" type="image/png" href="images/free-tour-ctg.-col-2.png">
