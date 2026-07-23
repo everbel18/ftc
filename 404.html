@@ -1,9 +1,16 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTH93W7H');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <script>
-        // Redirección automática para rutas antiguas o con caracteres extraños (Google Maps, ChatGPT, etc.)
+        // RedirecciÃ³n automÃ¡tica para rutas antiguas o con caracteres extraÃ±os (Google Maps, ChatGPT, etc.)
         (function() {
             var rawPath = "";
             try {
@@ -11,7 +18,7 @@
             } catch(e) {
                 rawPath = window.location.pathname;
             }
-            // Eliminar espacios, saltos de línea (como %0A, \n, %0D) y la barra diagonal final
+            // Eliminar espacios, saltos de lÃ­nea (como %0A, \n, %0D) y la barra diagonal final
             var path = rawPath.replace(/%0a|%0d|\s+/gi, "").toLowerCase().replace(/\/$/, "");
             var search = window.location.search;
             var hash = window.location.hash;
@@ -35,7 +42,7 @@
             var target = null;
             
             if (path === "") {
-                // Si el path queda vacío (por ejemplo, /%0A), redirigir al inicio correspondiente
+                // Si el path queda vacÃ­o (por ejemplo, /%0A), redirigir al inicio correspondiente
                 var isSpanish = (navigator.language || navigator.userLanguage || "").toLowerCase().indexOf("es") === 0;
                 target = isSpanish ? "/index-es.html" : "/index.html";
             } else if (redirects[path]) {
@@ -62,7 +69,7 @@
                 } else if (path.indexOf("contact") !== -1 || path.indexOf("contacto") !== -1) {
                     target = path.indexOf("/es") !== -1 ? "/index-es.html#contact" : "/index.html#contact";
                 } else if (path.length > 1) {
-                    // Si contiene "es", redirigir a inicio en español; de lo contrario, inglés
+                    // Si contiene "es", redirigir a inicio en espaÃ±ol; de lo contrario, inglÃ©s
                     target = (path.indexOf("es") !== -1 || path.indexOf("-es") !== -1) ? "/index-es.html" : "/index.html";
                 }
             }
@@ -73,7 +80,7 @@
         })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página no encontrada | Free Tour Cartagena</title>
+    <title>PÃ¡gina no encontrada | Free Tour Cartagena</title>
     <link rel="icon" type="image/png" href="images/free-tour-ctg.-col-2.png">
     <link rel="stylesheet" href="styles.css">
     <style>
@@ -101,10 +108,15 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTH93W7H"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="error-container">
         <h1 class="error-code">404</h1>
-        <p class="error-message">¡Ups! Parece que te has perdido por las calles de Cartagena.</p>
+        <p class="error-message">Â¡Ups! Parece que te has perdido por las calles de Cartagena.</p>
         <a href="index-es.html" class="btn btn-primary">Volver al Inicio</a>
     </div>
 </body>
 </html>
+
