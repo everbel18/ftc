@@ -3,31 +3,45 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.freewalkingtourcartagena.com/</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/index-es.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/index.html"/>
-  </url>
-  <url>
-    <loc>https://www.freewalkingtourcartagena.com/index.html</loc>
-    <lastmod>2026-04-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/index-es.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/"/>
   </url>
   <url>
     <loc>https://www.freewalkingtourcartagena.com/index-es.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/index-es.html"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/"/>
+  </url>
+  <url>
+    <loc>https://www.freewalkingtourcartagena.com/plan-your-trip.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/plan-your-trip.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/planifica-tu-viaje.html"/>
+  </url>
+  <url>
+    <loc>https://www.freewalkingtourcartagena.com/planifica-tu-viaje.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/planifica-tu-viaje.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/plan-your-trip.html"/>
+  </url>
+  <url>
+    <loc>https://www.freewalkingtourcartagena.com/landing.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.freewalkingtourcartagena.com/privacy-policy.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/privacy-policy.html"/>
@@ -35,7 +49,7 @@
   </url>
   <url>
     <loc>https://www.freewalkingtourcartagena.com/politica-privacidad.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/politica-privacidad.html"/>
@@ -43,7 +57,7 @@
   </url>
   <url>
     <loc>https://www.freewalkingtourcartagena.com/terms-conditions.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.freewalkingtourcartagena.com/terms-conditions.html"/>
@@ -51,7 +65,7 @@
   </url>
   <url>
     <loc>https://www.freewalkingtourcartagena.com/terminos-condiciones.html</loc>
-    <lastmod>2026-04-29</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="es" href="https://www.freewalkingtourcartagena.com/terminos-condiciones.html"/>

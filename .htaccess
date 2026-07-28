@@ -7,6 +7,10 @@ RewriteCond %{REQUEST_URI} [\r\n]
 RewriteRule ^.*$ / [L,R=301]
 
 
+# 0. Redireccionar index.html a la raíz / (Evita la duplicidad de contenido index.html vs / en Search Console)
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html [NC]
+RewriteRule ^index\.html$ https://www.freewalkingtourcartagena.com/ [R=301,L]
+
 # 1. Redireccionar la antigua ruta /es o /es/ a index-es.html de forma permanente (301)
 RewriteRule ^es/?$ index-es.html [L,R=301,NC]
 
