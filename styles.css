@@ -2569,3 +2569,284 @@ span.flatpickr-day.disabled,
     margin-bottom: 1.5rem;
   }
 }
+
+/* =========================================================================
+   Floating Cruise Badge Pill & Modern 2-Column Modal
+   ========================================================================= */
+.cruise-floating-badge {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  z-index: 9990;
+  background: linear-gradient(135deg, #0b2545 0%, #006eb6 100%);
+  color: #ffffff;
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 10px 30px rgba(0, 110, 182, 0.4);
+  border: 2px solid #ffc107;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: floatPulse 3s infinite ease-in-out;
+}
+
+.cruise-floating-badge:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 110, 182, 0.6);
+  background: linear-gradient(135deg, #006eb6 0%, #0b2545 100%);
+}
+
+@keyframes floatPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+.cruise-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 20px;
+}
+
+.cruise-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cruise-modal-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 940px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.92) translateY(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cruise-modal-overlay.active .cruise-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.cruise-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  background: #f1f5f9;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: #475569;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cruise-modal-close:hover {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.cruise-modal-header-centered {
+  text-align: center;
+  padding: 3rem 3rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cruise-modal-header-centered .cruise-modal-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.cruise-modal-header-centered .cruise-modal-subtitle {
+  font-size: 1.02rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.cruise-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 2rem 3rem 3rem;
+  align-items: center;
+}
+
+.cruise-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cruise-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.cruise-contact-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.cruise-contact-icon.pin {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.cruise-contact-icon.email {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.cruise-contact-icon.whatsapp {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.cruise-contact-details h4 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 2px;
+}
+
+.cruise-contact-details p, .cruise-contact-details a {
+  font-size: 0.92rem;
+  color: #475569;
+  margin: 0;
+  text-decoration: none;
+}
+
+.cruise-contact-details a:hover {
+  color: #006eb6;
+}
+
+.cruise-modal-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cruise-carousel-card {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  position: relative;
+  aspect-ratio: 4 / 3;
+}
+
+.cruise-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.4s ease;
+}
+
+.cruise-preview-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0b2545 0%, #1e3a8a 50%, #006eb6 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+  text-align: center;
+}
+
+.cruise-preview-placeholder span {
+  font-size: 3rem;
+}
+
+.cruise-preview-placeholder h4 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin: 0;
+  color: #ffc107;
+}
+
+.cruise-preview-placeholder p {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.cruise-carousel-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  justify-content: center;
+}
+
+.cruise-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cruise-carousel-dot.active {
+  background: #006eb6;
+  width: 24px;
+  border-radius: 10px;
+}
+
+@media (max-width: 868px) {
+  .cruise-modal-grid {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+  .cruise-modal-title {
+    font-size: 1.7rem;
+  }
+  .cruise-floating-badge {
+    bottom: 20px;
+    left: 15px;
+    padding: 10px 16px;
+    font-size: 0.82rem;
+  }
+}

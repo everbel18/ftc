@@ -879,6 +879,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const randomSuffix = Math.random().toString(36).substring(2, 6).toUpperCase();
             const reservationId = `FTC-${year}${month}${day}-${randomSuffix}`;
 
+            let baseComments = document.getElementById('nb-comments').value || '';
+
             const payload = {
                 reservationId: reservationId,
                 name: document.getElementById('nb-name').value,
@@ -890,7 +892,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 language: document.getElementById('nb-language').value,
                 date: formattedDate,
                 pax: document.getElementById('nb-pax').value,
-                comments: document.getElementById('nb-comments').value
+                comments: baseComments
             };
 
             // The active Web App URL. When the GAS backend is updated to support doPost, this will magically work.
@@ -1000,4 +1002,56 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+
+    // --- Cruise Modal Event Listeners & Functions ---
+    const cruiseModal = document.getElementById('cruise-info-modal');
+    const cruiseModalClose = document.getElementById('cruise-modal-close');
+    
+    window.openCruiseModal = function() {
+        if (cruiseModal) {
+            cruiseModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    };
+
+    window.closeCruiseModal = function() {
+        if (cruiseModal) {
+            cruiseModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    };
+
+    window.openCruiseBooking = function(event) {
+        if (event) event.preventDefault();
+        window.closeCruiseModal();
+        if (window.openNativeBookingModal) {
+            window.openNativeBookingModal();
+        }
+    };
+
+    window.switchCruiseImage = function(src, dotEl, targetId) {
+        const imgId = targetId || 'cruise-carousel-img';
+        const img = document.getElementById(imgId);
+        if (img) {
+            img.style.opacity = '0.3';
+            setTimeout(() => {
+                img.src = src;
+                img.style.opacity = '1';
+            }, 150);
+        }
+        if (dotEl && dotEl.parentElement) {
+            dotEl.parentElement.querySelectorAll('.cruise-carousel-dot').forEach(d => d.classList.remove('active'));
+            dotEl.classList.add('active');
+        }
+    };
+
+    if (cruiseModalClose) {
+        cruiseModalClose.addEventListener('click', window.closeCruiseModal);
+    }
+    if (cruiseModal) {
+        cruiseModal.addEventListener('click', (e) => {
+            if (e.target === cruiseModal) window.closeCruiseModal();
+        });
+    }
 });
+
