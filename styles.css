@@ -2850,3 +2850,59 @@ span.flatpickr-day.disabled,
     font-size: 0.82rem;
   }
 }
+
+/* =========================================================================
+   Country Autocomplete Dropdown Component
+   ========================================================================= */
+.country-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.country-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border: 2px solid #006eb6;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 99999;
+  display: none;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.country-dropdown.active {
+  display: block;
+}
+
+.country-dropdown-item {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: #333333;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.country-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.country-dropdown-item:hover,
+.country-dropdown-item.selected {
+  background-color: #e8f4fc;
+  color: #006eb6;
+  font-weight: 600;
+}
+
+.country-dropdown-empty {
+  padding: 12px;
+  font-size: 0.88rem;
+  color: #888;
+  text-align: center;
+  font-style: italic;
+}
+

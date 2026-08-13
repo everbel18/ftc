@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Reset and populate
         if (nativeForm) nativeForm.reset();
-        populateCountryList();
+        initCountryDropdown();
         updateTourPrice();
         toggleFwtOptions();
 
@@ -291,12 +291,73 @@ document.addEventListener('DOMContentLoaded', () => {
         "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "North Korea", "South Korea", "Kosovo", "Kuwait", "Kyrgyzstan", "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "Spain", "Sri Lanka", "Sudan", "South Sudan", "Suriname", "Sweden", "Switzerland", "Syria", "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
     ];
 
-    const populateCountryList = () => {
-        const datalist = document.getElementById('countries-list');
-        if (datalist && datalist.options.length === 0) {
-            datalist.innerHTML = countries.map(c => `<option value="${c}">`).join('');
-        }
+    const initCountryDropdown = () => {
+        const input = document.getElementById('nb-nationality');
+        const dropdown = document.getElementById('nb-country-dropdown');
+        if (!input || !dropdown) return;
+
+        let selectedIndex = -1;
+
+        const renderOptions = (filterText = '') => {
+            const text = filterText.trim().toLowerCase();
+            const matches = text === '' 
+                ? countries 
+                : countries.filter(c => c.toLowerCase().includes(text));
+
+            if (matches.length === 0) {
+                const isSpanish = window.location.pathname.includes('-es') || (document.getElementById('nb-language') && document.getElementById('nb-language').value === 'Español');
+                dropdown.innerHTML = `<div class="country-dropdown-empty">${isSpanish ? 'No se encontraron países' : 'No matching countries found'}</div>`;
+            } else {
+                dropdown.innerHTML = matches.map(c => `<div class="country-dropdown-item" data-value="${c}">${c}</div>`).join('');
+            }
+            dropdown.classList.add('active');
+            selectedIndex = -1;
+        };
+
+        // Event listeners
+        input.onfocus = () => renderOptions(input.value);
+        input.oninput = () => renderOptions(input.value);
+
+        dropdown.onmousedown = (e) => {
+            const item = e.target.closest('.country-dropdown-item');
+            if (item && item.dataset.value) {
+                input.value = item.dataset.value;
+                dropdown.classList.remove('active');
+            }
+        };
+
+        input.onkeydown = (e) => {
+            const items = dropdown.querySelectorAll('.country-dropdown-item');
+            if (!items.length) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex + 1) % items.length;
+                items.forEach((item, idx) => item.classList.toggle('selected', idx === selectedIndex));
+                if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+                items.forEach((item, idx) => item.classList.toggle('selected', idx === selectedIndex));
+                if (items[selectedIndex]) items[selectedIndex].scrollIntoView({ block: 'nearest' });
+            } else if (e.key === 'Enter') {
+                if (selectedIndex >= 0 && items[selectedIndex]) {
+                    e.preventDefault();
+                    input.value = items[selectedIndex].dataset.value;
+                    dropdown.classList.remove('active');
+                }
+            } else if (e.key === 'Escape') {
+                dropdown.classList.remove('active');
+            }
+        };
+
+        document.addEventListener('click', (e) => {
+            if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
     };
+    initCountryDropdown();
 
     const updateTourPrice = () => {
         const tourSelect = document.getElementById('nb-tour');
@@ -852,14 +913,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const nationalityVal = document.getElementById('nb-nationality').value;
-            if (!countries.includes(nationalityVal)) {
-                errorMsg.innerText = isSpanish ? 'Por favor selecciona un país válido de la lista' : 'Please select a valid country from the list';
+            const nationalityInput = document.getElementById('nb-nationality');
+            const nationalityVal = nationalityInput ? nationalityInput.value.trim() : '';
+            const matchedCountry = countries.find(c => c.toLowerCase() === nationalityVal.toLowerCase());
+
+            if (!matchedCountry) {
+                errorMsg.innerText = isSpanish ? 'Por favor selecciona un país válido de la lista desplegable' : 'Please select a valid country from the dropdown list';
                 errorMsg.style.display = 'block';
+                if (nationalityInput) {
+                    nationalityInput.focus();
+                    nationalityInput.dispatchEvent(new Event('input'));
+                }
                 submitBtn.innerText = originalBtnText;
                 submitBtn.disabled = false;
                 return;
             }
+            nationalityInput.value = matchedCountry;
 
             // Format date from YYYY-MM-DD to DD/MM/YYYY
             const rawDate = document.getElementById('nb-date').value;
