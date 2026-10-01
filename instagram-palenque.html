@@ -168,6 +168,7 @@
             font-weight: 700;
             color: #ffffff;
             padding: 12px 10px 12px 0;
+            text-transform: lowercase;
         }
 
         .form-control::placeholder {
@@ -359,7 +360,7 @@
         const instagramInput = document.getElementById('instagramUser');
 
         instagramInput.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/^@+/, '').trim();
+            e.target.value = e.target.value.replace(/^@+/, '').toLowerCase().trim();
         });
 
         form.addEventListener('submit', async (e) => {
