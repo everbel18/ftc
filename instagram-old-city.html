@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtag/js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MTH93W7H');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/free-tour-ctg.-col-2.png">
+    <title>Instagram | Free Tour Cartagena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ffcc00;
+            --dark-color: #14213d;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+            background-color: #000;
+            padding: 20px 15px;
+        }
+
+        /* Fondo Collage */
+        .collage-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 8px;
+            padding: 8px;
+            z-index: -2;
+        }
+        .collage-bg div {
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.45);
+            border-radius: 4px;
+        }
+        .img1 { background-image: url('images/old-city-6.jpg'); }
+        .img2 { background-image: url('images/getsemani.jpg'); background-position: center 90% !important; }
+        .img3 { background-image: url('images/guias.jpg'); }
+        .img4 { background-image: url('images/palenque.jpeg'); }
+        .img5 { background-image: url('images/santa-teresa.jpg'); }
+        .img6 { background-image: url('images/bazurto.jpg'); }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(20,33,61,0.4) 0%, rgba(20,33,61,0.85) 100%);
+            z-index: -1;
+        }
+
+        .content {
+            max-width: 550px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .brand-logo-container {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .brand-logo {
+            width: 140px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 6px 15px rgba(0,0,0,0.6));
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 1.25rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            opacity: 0.95;
+        }
+
+        .input-group {
+            margin-bottom: 1.8rem;
+            position: relative;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            padding: 4px 12px 4px 20px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--primary-color);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+        }
+
+        .ig-icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-color);
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .input-prefix {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-right: 4px;
+            user-select: none;
+        }
+
+        .form-control {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 1.2rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            padding: 12px 10px 12px 0;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+        }
+
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            max-width: 420px;
+            padding: 1.2rem 2rem;
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-shadow: none;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-4px);
+            background-color: white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .success-box {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .btn-ig {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background-color: white;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            text-shadow: none;
+            margin-top: 1rem;
+        }
+
+        .btn-ig:hover {
+            transform: translateY(-4px);
+            background-color: var(--primary-color);
+        }
+
+        .select-style {
+            background: rgba(255, 255, 255, 0.12);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50px;
+            padding: 10px 15px;
+            color: white;
+            font-family: 'Lato', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 48%;
+            backdrop-filter: blur(10px);
+            outline: none;
+            cursor: pointer;
+            appearance: none;
+        }
+
+        .select-style option {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .select-style:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+        }
+
+        .selectors-group {
+            display: flex;
+            justify-content: space-between;
+            max-width: 420px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .en-text {
+            display: block;
+            font-size: 0.85em;
+            opacity: 0.75;
+            font-style: italic;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+        .btn-submit .en-text, .btn-ig .en-text {
+            font-size: 0.75em;
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.3rem; }
+            p { font-size: 1.05rem; margin-bottom: 1.5rem; }
+            .collage-bg { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); }
+            .brand-logo { width: 110px; }
+            .selectors-group { flex-direction: column; gap: 15px; }
+            .select-style { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MTH93W7H"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="collage-bg">
+        <div class="img1"></div>
+        <div class="img2"></div>
+        <div class="img3"></div>
+        <div class="img4"></div>
+        <div class="img5"></div>
+        <div class="img6"></div>
+    </div>
+    <div class="overlay"></div>
+
+    <div class="content">
+        <div class="brand-logo-container">
+            <img src="images/free-tour-ctg.-col-2.png" alt="Free Tour Cartagena" class="brand-logo">
+        </div>
+        
+        <h1>¡Gracias!<span class="en-text">Thank You!</span></h1>
+        <p>Déjanos tu usuario de Instagram.<span class="en-text">Leave us your Instagram handle to share your memories.</span></p>
+
+        <!-- Formulario -->
+        <form id="instagramForm">
+            <div class="selectors-group">
+                <select id="turno" class="select-style" required>
+                    <option value="" disabled selected>Turno / Shift</option>
+                    <option value="Mañana">Mañana</option>
+                    <option value="Tarde">Tarde</option>
+                </select>
+                <select id="idioma" class="select-style" required>
+                    <option value="" disabled selected>Idioma / Language</option>
+                    <option value="Español">Español</option>
+                    <option value="Inglés">Inglés</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <div class="input-wrapper">
+                    <!-- Icono Instagram vector SVG -->
+                    <svg class="ig-icon" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    <span class="input-prefix">@</span>
+                    <input type="text" id="instagramUser" class="form-control" placeholder="tu_usuario / your_username" required autocomplete="off" spellcheck="false">
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn" class="btn-submit">
+                ENVIAR<span class="en-text">SUBMIT</span>
+            </button>
+        </form>
+
+        <!-- Estado de Éxito -->
+        <div id="successBox" class="success-box">
+            <p>Redirigiendo a Instagram...<span class="en-text">Redirecting to Instagram...</span></p>
+            <a id="redirectBtn" href="https://www.instagram.com/free_tour_cartagena/" class="btn-ig" target="_blank">
+                IR A INSTAGRAM<span class="en-text">GO TO INSTAGRAM</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * CONFIGURACIÓN DE GOOGLE APPS SCRIPT
+         * Pega aquí la URL de la Web App generada en tu Google Sheets
+         */
+        const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7rZNacquGqlWkIBJObCKmJonEk9DuXz4h4578hmUji7ptUts0D29blvshb_S01XClnw/exec"; 
+
+        const INSTAGRAM_HANDLE = "free_tour_cartagena";
+        const INSTAGRAM_URL = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+
+        const form = document.getElementById('instagramForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const successBox = document.getElementById('successBox');
+        const instagramInput = document.getElementById('instagramUser');
+        const turnoInput = document.getElementById('turno');
+        const idiomaInput = document.getElementById('idioma');
+
+        instagramInput.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/^@+/, '').trim();
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const username = instagramInput.value.trim();
+            if (!username) return;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = 'ENVIANDO...<span class="en-text">SENDING...</span>';
+
+            const payload = {
+                date: new Date().toLocaleString("es-CO", { timeZone: "America/Bogota" }),
+                tour: "OLD CITY & GETSEMANÍ",
+                turno: turnoInput.value,
+                idioma: idiomaInput.value,
+                instagram: "@" + username
+            };
+
+            if (GOOGLE_SCRIPT_URL) {
+                try {
+                    await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                } catch (err) {
+                    console.warn("Error guardando datos:", err);
+                }
+            }
+
+            form.style.display = 'none';
+            successBox.style.display = 'block';
+
+            setTimeout(() => {
+                window.location.href = INSTAGRAM_URL;
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
