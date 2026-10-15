@@ -832,6 +832,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Intercept Booking Links (Native Modal buttons)
         if (el.classList.contains('btn-open-booking')) {
+            if (!nativeModal) return;
             e.preventDefault();
 
             // Auto-select tour logic
@@ -1032,6 +1033,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('cancel') === 'true') {
         setTimeout(openCancelModal, 500);
+    }
+    if (urlParams.get('book') === 'true' || window.location.hash === '#book') {
+        setTimeout(() => {
+            if (window.openNativeBookingModal) {
+                window.openNativeBookingModal();
+            }
+        }, 300);
     }
 
     if (cancelForm) {

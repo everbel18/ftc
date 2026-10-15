@@ -1,33 +1,52 @@
 # Habilitar el motor de redirección de Apache
 RewriteEngine On
 
-# Redireccionar cualquier petición con saltos de línea (%0A o \n) o retornos de carro (%0D) (ej. enlaces de Google Maps con saltos de línea accidentales)
+# Redireccionar cualquier petición con saltos de línea (%0A o \n) o retornos de carro (%0D)
 RewriteCond %{THE_REQUEST} \s/.*(?:%0A|%0D|\r|\n) [NC,OR]
 RewriteCond %{REQUEST_URI} [\r\n]
 RewriteRule ^.*$ / [L,R=301]
 
-
-# 0. Redireccionar index.html a la raíz / (Evita la duplicidad de contenido index.html vs / en Search Console)
+# 0. Redireccionar index.html a la raíz / (Evita duplicidad de index.html vs / en Search Console)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html [NC]
 RewriteRule ^index\.html$ https://www.freewalkingtourcartagena.com/ [R=301,L]
 
 # 1. Redireccionar la antigua ruta /es o /es/ a index-es.html de forma permanente (301)
 RewriteRule ^es/?$ index-es.html [L,R=301,NC]
 
-# 2. Redireccionar carpetas/rutas comunes antiguas sin extensión a su equivalente .html
-# Por ejemplo: /plan-your-trip -> /plan-your-trip.html
+# 2. Redirecciones 301 de las rutas /en/, /fr/, /de/ anteriores a su nueva ubicación dentro de tours/ y guias/
+RewriteRule ^(en|fr|de)/(tours|guias)/([^/]+)(\.html)?$ /$2/$1/$3 [R=301,L,NC]
+
+# Redirecciones 301 de /tours/slug y /guias/slug antiguos sin idioma hacia /es/
+RewriteRule ^tours/(free-walking-tour-cartagena|tour-ciudad-amurallada|tour-getsemani-murales|tour-cruceros-cartagena|tour-privado-cartagena|tour-san-basilio-de-palenque)(\.html)?$ /tours/es/$1 [R=301,L,NC]
+RewriteRule ^guias/(punto-de-encuentro-plaza-santa-teresa|que-hacer-en-cartagena-en-un-dia|cartagena-para-cruceros|seguridad-en-cartagena|que-comer-en-cartagena|preguntas-frecuentes)(\.html)?$ /guias/es/$1 [R=301,L,NC]
+
+# Redirecciones 301 permanentes de URLs antiguas en la raíz a /tours/es/ y /guias/es/
+RewriteRule ^(free-walking-tour-cartagena|tour-ciudad-amurallada|tour-getsemani-murales|tour-cruceros-cartagena|tour-privado-cartagena|tour-san-basilio-de-palenque)(\.html)?$ /tours/es/$1 [R=301,L,NC]
+RewriteRule ^(punto-de-encuentro-plaza-santa-teresa|que-hacer-en-cartagena-en-un-dia|cartagena-para-cruceros|seguridad-en-cartagena|que-comer-en-cartagena|preguntas-frecuentes)(\.html)?$ /guias/es/$1 [R=301,L,NC]
+
+# Redirecciones 301 para páginas de Instagram QR (de la raíz a /instagram/)
+RewriteRule ^instagram-(bazurto|city-tour|old-city|palenque|street-food)(\.html)?$ /instagram/$1 [R=301,L,NC]
+RewriteRule ^instagram/instagram-(bazurto|city-tour|old-city|palenque|street-food)(\.html)?$ /instagram/$1 [R=301,L,NC]
+
+# 3. Servir URLs limpias sin extensión .html internamente
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Soporte explícito para subcarpetas /tours/{es,en,fr,de}/ y /guias/{es,en,fr,de}/ sin extensión
+RewriteCond %{DOCUMENT_ROOT}/$1/$2/$3.html -f
+RewriteRule ^(tours|guias)/(es|en|fr|de)/([^/]+)/?$ $1/$2/$3.html [L]
+
+# Soporte explícito para /instagram/ sin extensión
+RewriteCond %{DOCUMENT_ROOT}/instagram/$1.html -f
+RewriteRule ^instagram/([^/]+)/?$ instagram/$1.html [L]
+
+# 4. Redireccionar carpetas/rutas comunes antiguas sin extensión a su equivalente .html si se solicita explícitamente
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(plan-your-trip|planifica-tu-viaje|privacy-policy|politica-privacidad|terms-conditions|terminos-condiciones|thanks|thanks-es|landing)$ $1.html [L,R=301,NC]
 
-# 3. Redireccionar cualquier otra ruta antigua inexistente al inicio respectivo (inglés/español)
-# Si contiene "es", redirigir al inicio en español, sino al inicio en inglés
+# 5. Redireccionar rutas bajo /es/ inexistentes a index-es.html
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^es/.*$ index-es.html [L,R=301,NC]
-
-# Opcional: Permitir que archivos .html se sirvan sin la extensión en la URL
-# Si alguien entra a /plan-your-trip, se muestra el archivo plan-your-trip.html de forma interna
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]

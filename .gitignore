@@ -1,0 +1,19 @@
+# Copias de seguridad antiguas y temporales
+old web/
+*.bak
+*.tmp
+
+# Archivos multimedia pesados no enlazados en la web
+videos/
+marcos/
+docs/
+csv/
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs y entornos de prueba
+*.log
+npm-debug.log*
