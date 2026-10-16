@@ -6,6 +6,14 @@ RewriteCond %{THE_REQUEST} \s/.*(?:%0A|%0D|\r|\n) [NC,OR]
 RewriteCond %{REQUEST_URI} [\r\n]
 RewriteRule ^.*$ / [L,R=301]
 
+# Redirección 301 de dominio antiguo (freetourcartagena.com -> freewalkingtourcartagena.com)
+RewriteCond %{HTTP_HOST} ^(www\.)?freetourcartagena\.com$ [NC]
+RewriteRule ^(.*)$ https://www.freewalkingtourcartagena.com/$1 [R=301,L]
+
+# Redirecciones 301 de la carpeta 'old web' hacia la web oficial
+RewriteRule ^old[\s%20_-]?web/index-es(\.html)?$ /index-es.html [R=301,L,NC]
+RewriteRule ^old[\s%20_-]?web(/.*)?$ / [R=301,L,NC]
+
 # 0. Redireccionar index.html a la raíz / (Evita duplicidad de index.html vs / en Search Console)
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html [NC]
 RewriteRule ^index\.html$ https://www.freewalkingtourcartagena.com/ [R=301,L]
@@ -18,11 +26,11 @@ RewriteRule ^(en|fr|de)/(tours|guias)/([^/]+)(\.html)?$ /$2/$1/$3 [R=301,L,NC]
 
 # Redirecciones 301 de /tours/slug y /guias/slug antiguos sin idioma hacia /es/
 RewriteRule ^tours/(free-walking-tour-cartagena|tour-ciudad-amurallada|tour-getsemani-murales|tour-cruceros-cartagena|tour-privado-cartagena|tour-san-basilio-de-palenque)(\.html)?$ /tours/es/$1 [R=301,L,NC]
-RewriteRule ^guias/(punto-de-encuentro-plaza-santa-teresa|que-hacer-en-cartagena-en-un-dia|cartagena-para-cruceros|seguridad-en-cartagena|que-comer-en-cartagena|preguntas-frecuentes)(\.html)?$ /guias/es/$1 [R=301,L,NC]
+RewriteRule ^guias/(punto-de-encuentro-plaza-santa-teresa|que-hacer-en-cartagena-en-un-dia|cartagena-para-cruceros|seguridad-en-cartagena|que-comer-en-cartagena|preguntas-frecuentes|ruta-macondo|conoce-a-edgar)(\.html)?$ /guias/es/$1 [R=301,L,NC]
 
 # Redirecciones 301 permanentes de URLs antiguas en la raíz a /tours/es/ y /guias/es/
 RewriteRule ^(free-walking-tour-cartagena|tour-ciudad-amurallada|tour-getsemani-murales|tour-cruceros-cartagena|tour-privado-cartagena|tour-san-basilio-de-palenque)(\.html)?$ /tours/es/$1 [R=301,L,NC]
-RewriteRule ^(punto-de-encuentro-plaza-santa-teresa|que-hacer-en-cartagena-en-un-dia|cartagena-para-cruceros|seguridad-en-cartagena|que-comer-en-cartagena|preguntas-frecuentes)(\.html)?$ /guias/es/$1 [R=301,L,NC]
+RewriteRule ^(punto-de-encuentro-plaza-santa-teresa|que-hacer-en-cartagena-en-un-dia|cartagena-para-cruceros|seguridad-en-cartagena|que-comer-en-cartagena|preguntas-frecuentes|ruta-macondo|conoce-a-edgar)(\.html)?$ /guias/es/$1 [R=301,L,NC]
 
 # Redirecciones 301 para páginas de Instagram QR (de la raíz a /instagram/)
 RewriteRule ^instagram-(bazurto|city-tour|old-city|palenque|street-food)(\.html)?$ /instagram/$1 [R=301,L,NC]
