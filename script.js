@@ -2,6 +2,178 @@
  * script.js - Lógica del sitio Free Tour Cartagena
  */
 
+/**
+ * RASTREO DE ORIGEN EXTERNO (Google, Instagram, TikTok, etc.) Y PALABRAS DE BÚSQUEDA
+ */
+(function initTrafficSourceTracker() {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const ref = document.referrer || '';
+        const ua = navigator.userAgent || '';
+
+        let detectedSource = '';
+        let detectedSlug = '';
+        let detectedKeyword = '';
+
+        // 1. Extraer palabra clave si viene en el enlace (Google Ads utm_term/keyword o parámetros de búsqueda)
+        const kwParam = urlParams.get('utm_term') || urlParams.get('keyword') || urlParams.get('kw') || urlParams.get('q') || urlParams.get('query') || urlParams.get('p');
+        if (kwParam) {
+            detectedKeyword = kwParam.trim();
+        } else if (ref) {
+            try {
+                const refUrl = new URL(ref);
+                const refKw = refUrl.searchParams.get('q') || refUrl.searchParams.get('p') || refUrl.searchParams.get('query') || refUrl.searchParams.get('text');
+                if (refKw) detectedKeyword = refKw.trim();
+            } catch (e) {}
+        }
+
+        // 2. Detectar origen por parámetros en la URL (utm_source, source, gclid, fbclid, ttclid)
+        const paramSource = urlParams.get('utm_source') || urlParams.get('source') || urlParams.get('ref');
+        if (urlParams.has('gclid') || urlParams.has('gad_source') || urlParams.has('gbraid') || urlParams.has('wbraid')) {
+            detectedSource = 'Google Ads';
+            detectedSlug = 'google-ads';
+        } else if (urlParams.has('ttclid')) {
+            detectedSource = 'TikTok Ads';
+            detectedSlug = 'tiktok';
+        } else if (urlParams.has('fbclid')) {
+            detectedSource = 'Facebook / Instagram Ads';
+            detectedSlug = 'instagram-fb';
+        } else if (paramSource) {
+            const s = paramSource.toLowerCase().trim();
+            const map = {
+                'google': 'Google',
+                'google-ads': 'Google Ads',
+                'adwords': 'Google Ads',
+                'instagram': 'Instagram',
+                'ig': 'Instagram',
+                'tiktok': 'TikTok',
+                'facebook': 'Facebook',
+                'fb': 'Facebook',
+                'tripadvisor': 'TripAdvisor',
+                'chatgpt': 'ChatGPT',
+                'chatgpt.com': 'ChatGPT',
+                'perplexity': 'Perplexity',
+                'youtube': 'YouTube',
+                'whatsapp': 'WhatsApp',
+                'bing': 'Bing'
+            };
+            detectedSource = map[s] || paramSource.trim();
+            detectedSlug = s.replace(/[^a-z0-9-_]/g, '');
+        }
+
+        // 3. Si no hay parámetro en la URL, detectar por Referrer externo (cuando entran desde otra web)
+        if (!detectedSource && ref) {
+            try {
+                const refHost = new URL(ref).hostname.toLowerCase();
+                const currentHost = window.location.hostname.toLowerCase();
+                const isInternal = currentHost && (refHost === currentHost || refHost.endsWith('freewalkingtourcartagena.com'));
+
+                if (!isInternal) {
+                    if (refHost.includes('google.')) {
+                        detectedSource = 'Google';
+                        detectedSlug = 'google';
+                    } else if (refHost.includes('instagram.com')) {
+                        detectedSource = 'Instagram';
+                        detectedSlug = 'instagram';
+                    } else if (refHost.includes('tiktok.com')) {
+                        detectedSource = 'TikTok';
+                        detectedSlug = 'tiktok';
+                    } else if (refHost.includes('facebook.com') || refHost.includes('fb.com') || refHost.includes('fb.me')) {
+                        detectedSource = 'Facebook';
+                        detectedSlug = 'facebook';
+                    } else if (refHost.includes('tripadvisor.')) {
+                        detectedSource = 'TripAdvisor';
+                        detectedSlug = 'tripadvisor';
+                    } else if (refHost.includes('chatgpt.com') || refHost.includes('openai.com')) {
+                        detectedSource = 'ChatGPT';
+                        detectedSlug = 'chatgpt';
+                    } else if (refHost.includes('perplexity.ai')) {
+                        detectedSource = 'Perplexity';
+                        detectedSlug = 'perplexity';
+                    } else if (refHost.includes('claude.ai')) {
+                        detectedSource = 'Claude AI';
+                        detectedSlug = 'claude';
+                    } else if (refHost.includes('youtube.com') || refHost.includes('youtu.be')) {
+                        detectedSource = 'YouTube';
+                        detectedSlug = 'youtube';
+                    } else if (refHost.includes('bing.com')) {
+                        detectedSource = 'Bing';
+                        detectedSlug = 'bing';
+                    } else if (refHost.includes('yahoo.com')) {
+                        detectedSource = 'Yahoo';
+                        detectedSlug = 'yahoo';
+                    } else if (refHost.includes('duckduckgo.com')) {
+                        detectedSource = 'DuckDuckGo';
+                        detectedSlug = 'duckduckgo';
+                    } else if (refHost.includes('t.co') || refHost.includes('twitter.com') || refHost.includes('x.com')) {
+                        detectedSource = 'X (Twitter)';
+                        detectedSlug = 'x';
+                    } else if (refHost.includes('whatsapp.com') || refHost.includes('wa.me')) {
+                        detectedSource = 'WhatsApp';
+                        detectedSlug = 'whatsapp';
+                    } else if (refHost.includes('freetourcartagena.com')) {
+                        detectedSource = 'Web Antigua (freetourcartagena.com)';
+                        detectedSlug = 'old-web';
+                    } else {
+                        detectedSource = refHost.replace(/^www\./, '');
+                        detectedSlug = detectedSource.replace(/[^a-z0-9-_]/g, '-');
+                    }
+                }
+            } catch (e) {}
+        }
+
+        // 4. Detectar navegadores integrados de Apps móviles (Instagram, TikTok, Facebook) cuando ocultan el referrer
+        if (!detectedSource && ua) {
+            if (/Instagram/i.test(ua)) {
+                detectedSource = 'Instagram';
+                detectedSlug = 'instagram';
+            } else if (/TikTok|BytedanceWebview|musical_ly/i.test(ua)) {
+                detectedSource = 'TikTok';
+                detectedSlug = 'tiktok';
+            } else if (/FBAN|FBAV|FB_IAB/i.test(ua)) {
+                detectedSource = 'Facebook';
+                detectedSlug = 'facebook';
+            } else if (/WhatsApp/i.test(ua)) {
+                detectedSource = 'WhatsApp';
+                detectedSlug = 'whatsapp';
+            }
+        }
+
+        // 5. Guardar en almacenamiento del navegador sin sobrescribir un origen externo previo con "Directo"
+        const existingSource = sessionStorage.getItem('ftc_source') || localStorage.getItem('ftc_source');
+        if (detectedSource) {
+            sessionStorage.setItem('ftc_source', detectedSource);
+            localStorage.setItem('ftc_source', detectedSource);
+            if (detectedSlug) {
+                sessionStorage.setItem('ftc_source_slug', detectedSlug);
+            }
+        } else if (!existingSource) {
+            sessionStorage.setItem('ftc_source', 'Directo');
+        }
+
+        if (detectedKeyword) {
+            sessionStorage.setItem('ftc_keyword', detectedKeyword);
+            localStorage.setItem('ftc_keyword', detectedKeyword);
+        }
+
+        // Guardar la primera página a la que entró (útil para saber qué buscó en Google cuando Google encripta la palabra)
+        if (!sessionStorage.getItem('ftc_landing_page')) {
+            const cleanPath = window.location.pathname === '/' ? '/index.html' : window.location.pathname;
+            sessionStorage.setItem('ftc_landing_page', cleanPath);
+        }
+
+        // 6. Mostrar ?source=... en la barra de direcciones cuando entran desde un origen externo
+        const activeSlug = detectedSlug || sessionStorage.getItem('ftc_source_slug');
+        if (activeSlug && !urlParams.has('source') && !urlParams.has('utm_source') && window.history && window.history.replaceState) {
+            const newUrl = new URL(window.location.href);
+            newUrl.searchParams.set('source', activeSlug);
+            window.history.replaceState({}, '', newUrl.toString());
+        }
+    } catch (err) {
+        console.warn('Error en tracker de origen:', err);
+    }
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     // --- Navbar Scroll Effect ---
     const header = document.getElementById('header');
@@ -949,7 +1121,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const randomSuffix = Math.random().toString(36).substring(2, 6).toUpperCase();
             const reservationId = `FTC-${year}${month}${day}-${randomSuffix}`;
 
-            let baseComments = document.getElementById('nb-comments').value || '';
+            let baseComments = (document.getElementById('nb-comments').value || '').trim();
+            const trackedSource = sessionStorage.getItem('ftc_source') || localStorage.getItem('ftc_source') || 'Directo';
+            const trackedKeyword = sessionStorage.getItem('ftc_keyword') || localStorage.getItem('ftc_keyword') || '';
+            const trackedLanding = sessionStorage.getItem('ftc_landing_page') || '';
+
+            let sourceDetails = `Origen: ${trackedSource}`;
+            if (trackedKeyword) {
+                sourceDetails += ` | Búsqueda: "${trackedKeyword}"`;
+            }
+            if (trackedLanding && trackedLanding !== '/index.html' && trackedLanding !== '/index-es.html' && trackedLanding !== '/') {
+                sourceDetails += ` | Pág: ${trackedLanding}`;
+            }
+
+            const trackingNote = `[${sourceDetails}]`;
+            const finalComments = baseComments ? `${baseComments} | ${trackingNote}` : trackingNote;
 
             const payload = {
                 reservationId: reservationId,
@@ -962,7 +1148,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 language: document.getElementById('nb-language').value,
                 date: formattedDate,
                 pax: document.getElementById('nb-pax').value,
-                comments: baseComments
+                comments: finalComments,
+                source: trackedSource
             };
 
             // The active Web App URL. When the GAS backend is updated to support doPost, this will magically work.
